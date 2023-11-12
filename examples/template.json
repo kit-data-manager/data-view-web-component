@@ -1,0 +1,39 @@
+{
+   "title": "A sample resource",
+   "subtitle": "KIT, 2020",
+   "bodyText": "Lorem Ipsum...",
+   "textRight": {          // All the slots are dynamic,
+    "value": "2023-10-10 11:00",      // only receiving a string
+    "label": "Date updated"      // or label/value object with an optional url
+   },
+   "imageURL": "...",
+   "downloadURL": "...",      // Noch "unbenutzt" in der Card, eher für die Children gedacht
+   "downloads": [
+  { "url": "...", "label": "Citation information" },
+  { "url": "...", "label": "Packaged ressource" },
+  { "url": "...", "label": "Metadata", "position": "metadata" }
+ ],
+   "tags": [
+    {
+     "text": "First tag",
+     "color": "green"
+    },
+    {
+      "text": "Second tag",
+      "color": "gray",
+      "url": "..."               // allow urls in tags
+     },
+    {
+     "text": "Icon tag",
+     "color": "blue",
+     "icon": "lock"
+    }
+   ],
+   "children": [
+    { "title": "first child"  }  // Rekursiv die gleichen Props
+   ],
+   "metadata": [
+      { "label": "Checksum", "value": "md5:1234" },
+      { "label": "License", "value": "CC-BY-0", "url": "string" }  // allow urls in metadata
+   ]
+}
