@@ -1,0 +1,76 @@
+:host {
+  --mainBG: #CBCBCB;
+  --darkerBG: #BDBDBD;
+  --lighterBG: #D9D9D9;
+  --mainText: #000;
+  --secondaryText: #444444;
+  display: block;
+}
+
+* {
+  font-family: Inter;
+}
+
+.card-container {
+  padding: 15px;
+  border-radius: 16px;
+  background-color: var(--mainBG);
+  display: flex;
+  gap: 10px;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: var(--secondaryText);
+}
+
+.bodyText {
+  font-size: 14px;
+}
+
+.image-wrapper {
+  flex: 1;
+}
+
+.wrapper-middle {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.wrapper-right {
+  flex: 1;
+}
+
+.label-value-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--secondaryText);
+}
+
+.value {
+  font-size: 16px;
+  color: var(--mainText);
+}
+
+.alignRight {
+  text-align: right;
+}

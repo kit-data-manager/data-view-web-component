@@ -1,5 +1,5 @@
 export default {
-    title: "My Component",
+    title: "Data Card",
     args: {
         first: "World",
         middle: "This is",
@@ -13,7 +13,7 @@ export default {
 }
 
 const Template = args =>
-  `<my-component first="${args.first}" middle="${args.middle}" last="${args.last}"></my-component>`;
+  `<data-card first="${args.first}" middle="${args.middle}" last="${args.last}"></data-card>`;
 
 export const Default = Template.bind({});
 

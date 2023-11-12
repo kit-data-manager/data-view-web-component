@@ -5,57 +5,51 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
+export { Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface DataCard {
+        "bodyText": TextPropType;
+        "dataTitle": TextPropType;
+        "imageUrl"?: string;
+        "metadata": Array<ValueLabelObj | ValueLabelObjWithUrl>;
+        "subTitle": TextPropType;
+        "tags": Array<Tag>;
+        "textRight": TextPropType;
+        "variant": 'default' | 'detailed' | 'minimal';
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDataCardElement extends Components.DataCard, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDataCardElement: {
+        prototype: HTMLDataCardElement;
+        new (): HTMLDataCardElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "data-card": HTMLDataCardElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface DataCard {
+        "bodyText"?: TextPropType;
+        "dataTitle"?: TextPropType;
+        "imageUrl"?: string;
+        "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl>;
+        "subTitle"?: TextPropType;
+        "tags"?: Array<Tag>;
+        "textRight"?: TextPropType;
+        "variant"?: 'default' | 'detailed' | 'minimal';
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "data-card": DataCard;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "data-card": LocalJSX.DataCard & JSXBase.HTMLAttributes<HTMLDataCardElement>;
         }
     }
 }
