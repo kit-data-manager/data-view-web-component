@@ -8,7 +8,17 @@
 }
 
 * {
-  font-family: Inter;
+  font-family: Roboto, sans-serif;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .card-container {
@@ -28,20 +38,26 @@
 
 .title {
   margin: 0;
+  font-size: 1.3em;
+  font-weight: 600;
 }
 
 .subtitle {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.9em;
   color: var(--secondaryText);
 }
 
 .bodyText {
-  font-size: 14px;
+  font-size: 1em;
 }
 
 .image-wrapper {
   flex: 1;
+}
+
+.main-card-wrapper {
+  flex: 6;
 }
 
 .wrapper-middle {
@@ -53,6 +69,10 @@
 
 .wrapper-right {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .label-value-wrapper {
@@ -73,4 +93,35 @@
 
 .alignRight {
   text-align: right;
+}
+
+.children-text {
+  color: var(--secondaryText);
+  size: 0.9em;
+  text-decoration: underline;
+}
+
+.tag-container {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 0.25em;
+}
+
+.tag {
+  border-radius: 16px;
+  padding: 0.1em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  flex-shrink: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag-text {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
 }

@@ -9,13 +9,14 @@ import { Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./compon
 export { Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
 export namespace Components {
     interface DataCard {
-        "bodyText": TextPropType;
+        "bodyText"?: TextPropType;
+        "childrenData": Array<DataCard>;
         "dataTitle": TextPropType;
         "imageUrl"?: string;
         "metadata": Array<ValueLabelObj | ValueLabelObjWithUrl>;
-        "subTitle": TextPropType;
-        "tags": Array<Tag>;
-        "textRight": TextPropType;
+        "subTitle"?: TextPropType;
+        "tags": Array<Tag> | string;
+        "textRight"?: TextPropType;
         "variant": 'default' | 'detailed' | 'minimal';
     }
 }
@@ -33,11 +34,12 @@ declare global {
 declare namespace LocalJSX {
     interface DataCard {
         "bodyText"?: TextPropType;
+        "childrenData"?: Array<DataCard>;
         "dataTitle"?: TextPropType;
         "imageUrl"?: string;
         "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl>;
         "subTitle"?: TextPropType;
-        "tags"?: Array<Tag>;
+        "tags"?: Array<Tag> | string;
         "textRight"?: TextPropType;
         "variant"?: 'default' | 'detailed' | 'minimal';
     }

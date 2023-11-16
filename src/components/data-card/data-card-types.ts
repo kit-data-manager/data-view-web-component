@@ -11,7 +11,7 @@ export type Tag = {
     text: string,
     color: string,
     url?: string,
-    icon?: string,
+    iconURL?: string,
 }
 
 export type TextPropType = string | ValueLabelObj

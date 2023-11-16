@@ -4,11 +4,16 @@
 ### How to run with Storybook
 Execute both commands in parallel
 ```bash
-npm run build -- --watch
+npm run build-watch
 ```
 and
 ```bash
 npm run storybook
+```
+
+### Only run Stencil without Storybook
+```bash
+npm start
 ```
 
 # Stencil Component Starter
