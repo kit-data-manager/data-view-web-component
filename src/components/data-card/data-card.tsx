@@ -56,8 +56,32 @@ export class DataCard {
 
     if (this.variant === 'minimal') {
       return (
-        <div class="card-container-minimal">
-
+        <div>
+          <div class="card-container-minimal">
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em', marginRight: '.5em' }}>
+                <iconify-icon icon="ci:download" height="1.2em"></iconify-icon>
+              </a>
+              <p class="title" style={{ fontSize: '.9em' }}>{typeof parsedTitle === 'string' ? parsedTitle : parsedTitle.value}</p>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <p class="label">{typeof parsedTextRight === 'string' ? parsedTextRight : parsedTextRight.value}</p>
+              {typeof parsedChildren !== 'string' && parsedChildren && parsedChildren.length > 0 ?(
+                <button onClick={this.onChildrenClick} style={{ marginLeft: '.5em' }}>
+                  <iconify-icon icon={`ci:chevron-${this.hasChildrenOpened ? 'up' : 'down'}`} height="1.5em"></iconify-icon>
+                </button>
+              ) : null}
+            </div>
+          </div>
+          {this.hasChildrenOpened ? (
+            <div class="minimal-children-container">
+              {typeof parsedChildren !== 'string' && parsedChildren?.map((child) => (
+                <div class="minimal-child-wrapper">
+                  <data-card {...child} variant="minimal" />
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       )
     }
@@ -113,7 +137,9 @@ export class DataCard {
         </div>
         {this.hasChildrenOpened ? (
           <div class="children-container">
-
+            {typeof parsedChildren !== 'string' && parsedChildren?.map((child) => (
+              <data-card {...child} variant="minimal" />
+            ))}
           </div>
         ) : null}
       </div>

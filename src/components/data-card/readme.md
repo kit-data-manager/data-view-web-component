@@ -29,6 +29,23 @@
 | `editData` |             | `CustomEvent<{ object: DataCard; }>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [data-card](.)
+
+### Depends on
+
+- [data-card](.)
+
+### Graph
+```mermaid
+graph TD;
+  data-card --> data-card
+  style data-card fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

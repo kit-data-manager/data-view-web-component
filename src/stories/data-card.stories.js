@@ -67,5 +67,12 @@ const Template = args =>
 
 export const Default = Template.bind({});
 
+export const Minimal = Template.bind({});
+Minimal.args = {
+  ...Minimal.args,
+  variant: 'minimal'
+};
+
+
 export const SFB980 = Template.bind({});
 SFB980.args = exampleSFB980;

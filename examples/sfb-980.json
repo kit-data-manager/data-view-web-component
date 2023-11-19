@@ -41,7 +41,7 @@
    ],
    "childrenData":[
       {
-         "title":"Vatikan Vat Gr 247, 084r",
+         "dataTitle":"Vatikan Vat Gr 247, 084r",
          "subtitle":"SFB 980 - A04, 2019",
          "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
          "textRight":{
@@ -54,9 +54,9 @@
                "label":"DataCite"
             }
          ],
-         "children":[
+         "childrenData":[
             {
-               "title":"084r.master.jpg",
+               "dataTitle":"084r.master.jpg",
                "subtitle":"SFB 980 - A04, 2019",
                "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.master.jpg",
                "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
@@ -98,7 +98,7 @@
                ]
             },
             {
-               "title":"084r.thumb.jpg",
+               "dataTitle":"084r.thumb.jpg",
                "subtitle":"SFB 980 - A04, 2019",
                "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
                "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
@@ -140,7 +140,7 @@
                ]
             },
             {
-               "title":"084r.tif",
+               "dataTitle":"084r.tif",
                "subtitle":"SFB 980 - A04, 2019",
                "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.tif",
                "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",

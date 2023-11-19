@@ -11,6 +11,29 @@
   font-family: Roboto, sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 16px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 button, input[type="submit"], input[type="reset"], a {
 	background: none;
   text-decoration: none;
@@ -24,7 +47,7 @@ button, input[type="submit"], input[type="reset"], a {
 
 .card-container {
   position: relative;
-  padding: 15px;
+  padding: 16px;
   border-radius: 16px;
   background-color: var(--mainBG);
   display: flex;
@@ -34,15 +57,37 @@ button, input[type="submit"], input[type="reset"], a {
   z-index: 10;
 }
 
+.card-container-minimal {
+  position: relative;
+  padding: .1em;
+  /* max-width: 30em; */
+  border-radius: 16px;
+  background-color: var(--lighterBG);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 3em;
+  padding-left: 0.50em;
+  padding-right: 0.50em;
+  margin-bottom: .5em;
+}
+
+.minimal-child-wrapper {
+  padding-left: 2em;
+}
+
 .children-container {
   position: relative;
   z-index: 1;
   margin-top: -16px;
-  padding-top: 16px;
+  padding: 16px;
+  padding-top: 32px;
   background-color: var(--darkerBG);
   height: 10em;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
+  overflow-y: scroll;
+  padding-right: 25%;
 }
 
 .card-image {
@@ -144,8 +189,8 @@ button, input[type="submit"], input[type="reset"], a {
   border-radius: 16px;
   padding: 0.15em;
   padding-left: 0.50em;
-  gap: 0.3em;
   padding-right: 0.50em;
+  gap: 0.3em;
   flex-shrink: 1;
   display: flex;
   justify-content: space-between;
