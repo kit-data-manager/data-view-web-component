@@ -6,10 +6,13 @@ type Props = {
 }
 
 export const TagComponent = ({ tag }: Props) => {
+	const clickable = tag.url && tag.url !== '';
 	return (
-		<div class="tag" style={{ backgroundColor: tag.color }}>
-			{/* TODO: icon */}
-			<span class="tag-text">{tag.text}</span>
-		</div>
+		<a class="tag" style={{ backgroundColor: tag.color, pointerEvents: clickable ? undefined : 'none' }} target="_blank" href={tag.url}>
+			{tag.iconName ? (
+				<iconify-icon icon={tag.iconName} style={{ color: '#fff', fontSize: '18px' }}></iconify-icon>
+			) : null}
+			<span class="tag-text" style={{ textDecoration: clickable ? 'underline' : 'none' }}>{tag.text}</span>
+		</a>
 	)
 }

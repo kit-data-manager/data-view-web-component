@@ -5,23 +5,40 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
-export { Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
+import { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
+export { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
 export namespace Components {
     interface DataCard {
         "bodyText"?: TextPropType;
-        "childrenData": Array<DataCard>;
+        "childrenData"?: Array<DataCard> | string;
         "dataTitle": TextPropType;
+        "downloadUrl"?: string;
+        "downloads"?: Array<DownloadObj> | string;
         "imageUrl"?: string;
-        "metadata": Array<ValueLabelObj | ValueLabelObjWithUrl>;
+        "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl>;
         "subTitle"?: TextPropType;
-        "tags": Array<Tag> | string;
+        "tags"?: Array<Tag> | string;
         "textRight"?: TextPropType;
-        "variant": 'default' | 'detailed' | 'minimal';
+        "variant"?: 'default' | 'detailed' | 'minimal';
     }
 }
+export interface DataCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDataCardElement;
+}
 declare global {
+    interface HTMLDataCardElementEventMap {
+        "editData": EditEvent;
+    }
     interface HTMLDataCardElement extends Components.DataCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDataCardElementEventMap>(type: K, listener: (this: HTMLDataCardElement, ev: DataCardCustomEvent<HTMLDataCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDataCardElementEventMap>(type: K, listener: (this: HTMLDataCardElement, ev: DataCardCustomEvent<HTMLDataCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDataCardElement: {
         prototype: HTMLDataCardElement;
@@ -34,10 +51,13 @@ declare global {
 declare namespace LocalJSX {
     interface DataCard {
         "bodyText"?: TextPropType;
-        "childrenData"?: Array<DataCard>;
+        "childrenData"?: Array<DataCard> | string;
         "dataTitle"?: TextPropType;
+        "downloadUrl"?: string;
+        "downloads"?: Array<DownloadObj> | string;
         "imageUrl"?: string;
         "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl>;
+        "onEditData"?: (event: DataCardCustomEvent<EditEvent>) => void;
         "subTitle"?: TextPropType;
         "tags"?: Array<Tag> | string;
         "textRight"?: TextPropType;

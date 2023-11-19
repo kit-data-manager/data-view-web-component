@@ -1,5 +1,5 @@
-import { Component, Prop, h } from '@stencil/core';
-import { Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from './data-card-types';
+import { Component, Event, EventEmitter, Prop, State, h } from '@stencil/core';
+import { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from './data-card-types';
 // import { LabelValue } from '../label-value/label-value';
 import { TextProp } from '../text-prop/text-prop';
 import { TagComponent } from '../tag/tag';
@@ -21,64 +21,101 @@ export class DataCard {
 
   @Prop() textRight?: TextPropType;
 
-  @Prop() tags: Array<Tag> | string;
+  @Prop() downloadUrl?: string;
 
-  // @ts-ignore
-  @Prop() childrenData: Array<DataCard>  = ['test', 'test']
+  @Prop() downloads?: Array<DownloadObj> | string;
 
-  @Prop() metadata: Array<ValueLabelObj | ValueLabelObjWithUrl>
+  @Prop() tags?: Array<Tag> | string;
 
-  @Prop() variant: 'default' | 'detailed' | 'minimal' = 'default';
+  @Prop() childrenData?: Array<DataCard> | string
 
-  componentWillUpdate() {
-    console.log('data-card will render');
+  @Prop() metadata?: Array<ValueLabelObj | ValueLabelObjWithUrl>
+
+  @Prop() variant?: 'default' | 'detailed' | 'minimal' = 'default';
+
+  @State() hasChildrenOpened = false;
+
+  @Event() editData: EventEmitter<EditEvent>;
+
+  onEdit = () => {
+    this.editData.emit({ object: this });
+  };
+
+  onChildrenClick = () => {
+    this.hasChildrenOpened = !this.hasChildrenOpened;
   }
   
   render() {
-    const parsedTitle= parseTextProp(this.dataTitle);
-    const parsedSubtitle = parseTextProp(this.subTitle);
-    const parsedBodyText = parseTextProp(this.bodyText);
-    const parsedTextRight = parseTextProp(this.textRight);
+    const parsedTitle= parseProp(this.dataTitle);
+    const parsedSubtitle = parseProp(this.subTitle);
+    const parsedBodyText = parseProp(this.bodyText);
+    const parsedTextRight = parseProp(this.textRight);
+    const parsedChildren = parseProp(this.childrenData);
+    const parsedDownloads = parseProp(this.downloads);
+    const parsedTags = parseProp(this.tags);
 
-    const parsedTags = parseTextProp(this.tags) as Array<Tag>;
+    if (this.variant === 'minimal') {
+      return (
+        <div class="card-container-minimal">
+
+        </div>
+      )
+    }
 
     return (
-      <div class="card-container">
-        {this.imageUrl ? (
-          <div class="image-wrapper">
-            <img class="card-image" src={this.imageUrl} alt="card image" />
-          </div>
-        ) : null}
-        <div class="main-card-wrapper">
-          <div class="tag-container">
-            {parsedTags.map((tag) => (
-              <TagComponent tag={tag} />
-            ))}
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <div class="wrapper-middle">
-              <TextProp prop={parsedTitle} textClass="title" />
-              <TextProp prop={parsedSubtitle} textClass="subtitle" />
-              <TextProp prop={parsedBodyText} textClass="bodyText" />
-              {this.childrenData ?
-                <button style={{ display: 'flex' }}>
-                  <span class="children-text">{this.childrenData.length} Files / Children</span>
+      <div>
+        <div class="card-container">
+          {this.imageUrl && this.imageUrl !== '' ? (
+            <div class="image-wrapper">
+              <img class="card-image" src={this.imageUrl} alt="card image" />
+            </div>
+          ) : null}
+          <div class="main-card-wrapper">
+            <div class="tag-container">
+              {typeof parsedTags !== 'string' && parsedTags?.map((tag) => (
+                <TagComponent tag={tag} />
+              ))}
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <div class="wrapper-middle">
+                <TextProp prop={parsedTitle} textClass="title" />
+                <TextProp prop={parsedSubtitle} textClass="subtitle" />
+                <TextProp prop={parsedBodyText} textClass="bodyText" />
+              </div>
+              <div class="wrapper-right">
+                <TextProp prop={parsedTextRight} alignRight textClass="bodyText" />
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flex: '1' }}>
+              {parsedChildren ?
+                <button onClick={this.onChildrenClick} style={{ display: 'flex' }}>
+                  <span class="subtitle" style={{ textDecoration: 'underline' }}>{parsedChildren.length} Files / Children</span>
                 </button>
                 : null}
-            </div>
-            <div class="wrapper-right">
-              <TextProp prop={parsedTextRight} alignRight textClass="bodyText" />
               <div style={{ display: 'flex', gap: '0.5em' }}>
-                <button>
-                  <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
-                </button>
-                <button>
-                  <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
-                </button>
-              </div>
+                  {typeof parsedDownloads !== 'string' && parsedDownloads?.filter(download => download.position !== 'metadata-container').map((download) => (
+                    <a download={download.label} target='_blank' href={download.url} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
+                      <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
+                      <span class="subtitle">{download.label}</span>
+                    </a>
+                  ))}
+                  {this.downloadUrl && this.downloadUrl !== '' ? (
+                    <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em' }}>
+                      <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
+                    </a>
+                  ) : null}
+                  <button onClick={this.onEdit} style={{ height: '1.5em' }}>
+                    <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
+                  </button>
+                </div>
             </div>
           </div>
         </div>
+        {this.hasChildrenOpened ? (
+          <div class="children-container">
+
+          </div>
+        ) : null}
       </div>
     );
   }
@@ -86,7 +123,7 @@ export class DataCard {
 
 // { "label": "Title", "value": "A sample resource" }
 
-function parseTextProp<T>(prop: T): T {
+function parseProp<T>(prop: T): T {
   if (typeof prop !== 'string') {
     return prop;
   }

@@ -1,12 +1,12 @@
 {
-   "title":"Vatikan Vat Gr 247",
-   "subtitle":"SFB 980 - A04, 2019",
+   "dataTitle":"Vatikan Vat Gr 247",
+   "subTitle":"SFB 980 - A04, 2019",
    "bodyText":"",
    "textRight":{
       "value":"2019-03-11T14:13:45Z",
       "label":"Created at"
    },
-   "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/3f3bf25b-e0b9-48a9-b344-20630f733f8b/data/076r.thumb.jpg",
+   "imageUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/3f3bf25b-e0b9-48a9-b344-20630f733f8b/data/076r.thumb.jpg",
    "downloadURL":"",
    "downloads":[
       {
@@ -39,7 +39,7 @@
          "icon":"lock"
       }
    ],
-   "children":[
+   "childrenData":[
       {
          "title":"Vatikan Vat Gr 247, 084r",
          "subtitle":"SFB 980 - A04, 2019",
