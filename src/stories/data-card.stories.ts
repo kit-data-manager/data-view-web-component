@@ -1,6 +1,7 @@
 import exampleSFB980 from '../../examples/sfb-980.json'
+import { Meta, StoryObj } from '@storybook/web-components';
 
-export default {
+const meta = {
   title: "Data Card",
   args: {
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
@@ -45,9 +46,11 @@ export default {
     downloads: { control: "array" },
     variant: { control: "radio", options: ['default', 'detailed', 'minimal'] },
   },
-}
+} satisfies Meta;
 
-const Template = args =>
+export default meta;
+
+const Template = (args: Story['args']) =>
   `<data-card
     image-url="${args.imageUrl}"
     data-title='${
@@ -65,12 +68,14 @@ const Template = args =>
     variant="${args.variant}"
   ></data-card>`;
 
-export const Default = Template.bind({});
+type Story = StoryObj<typeof meta>['args'];
 
-export const Minimal = Template.bind({});
+export const Default: Story = Template.bind({});
+
+export const Minimal: Story = Template.bind({});
 Minimal.args = {
   ...Minimal.args,
-  variant: 'minimal'
+  variant: 'minimal',
 };
 
 
