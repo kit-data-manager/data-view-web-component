@@ -4,6 +4,7 @@ import { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObj
 import { TextProp } from '../text-prop/text-prop';
 import { TagComponent } from '../tag/tag';
 import 'iconify-icon';
+import { LabelValue } from '../label-value/label-value';
 
 @Component({
   tag: 'data-card',
@@ -11,30 +12,69 @@ import 'iconify-icon';
   shadow: true,
 })
 export class DataCard {
+  /**
+   * URL of the image to be displayed on the card
+   */
   @Prop() imageUrl?: string;
 
+  /**
+   * Title of the card
+   */
   @Prop() dataTitle: TextPropType;
 
+  /**
+   * Subtitle of the card
+   */
   @Prop() subTitle?: TextPropType;
 
+  /**
+   * Body text of the card
+   */
   @Prop() bodyText?: TextPropType;
 
+  /**
+   * Text to be displayed on the right of the card
+   */
   @Prop() textRight?: TextPropType;
 
+  /**
+   * URL to be used for downloading the file
+   */
   @Prop() downloadUrl?: string;
 
-  @Prop() background?: 'light';
-
+  /**
+   * Array of download buttons to be displayed on the card
+   */
   @Prop() downloads?: Array<DownloadObj> | string;
 
+  /**
+   * Array of tags to be displayed on the card
+   */
   @Prop() tags?: Array<Tag> | string;
 
+  /**
+   * Array of children cards to be displayed on the card
+   */
   @Prop() childrenData?: Array<DataCard> | string
 
-  @Prop() metadata?: Array<ValueLabelObj | ValueLabelObjWithUrl>
+  /**
+   * Array of metadata to be displayed on the card in the detailed view
+   */
+  @Prop() metadata?: Array<ValueLabelObj | ValueLabelObjWithUrl> | string
 
+  /**
+   * Variant of the card
+   */
   @Prop() variant?: 'default' | 'detailed' | 'minimal' = 'default';
 
+  /**
+   * Whether the card is being used inside of the detailed view
+   */
+  @Prop() nested = false;
+
+  /**
+   * Whether the card is currently displaying its children
+   */
   @State() hasChildrenOpened = false;
 
   @Event() editData: EventEmitter<EditEvent>;
@@ -55,6 +95,7 @@ export class DataCard {
     const parsedChildren = parseProp(this.childrenData);
     const parsedDownloads = parseProp(this.downloads);
     const parsedTags = parseProp(this.tags);
+    const parsedMetadata = parseProp(this.metadata);
 
     if (this.variant === 'minimal') {
       return (
@@ -94,9 +135,19 @@ export class DataCard {
           <div class="card-container-detailed">
             <div class="metadata-container">
               <p class="title">Metadata</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75em', marginTop: '0.75em' }}>
+                {typeof parsedMetadata !== 'string' && parsedMetadata?.map((metadata) => (
+                  <LabelValue
+                    label={metadata.label}
+                    value={metadata.value}
+                    valueTextClass='bodyText'
+                    url={'url' in metadata ? metadata.url : undefined}
+                  />
+                ))}
+              </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: '7' }}>
-              <div class="card-container">
+              <div class="card-container" style={{ padding: '0' }}>
                 {this.imageUrl && this.imageUrl !== '' ? (
                   <div class="image-wrapper">
                     <img class="card-image" src={this.imageUrl} alt="card image" />
@@ -120,9 +171,9 @@ export class DataCard {
                   </div>
                 </div>
               </div>
-              <div style={{ display: 'flex', flex: '1', width: '-webkit-fill-available' }}>
+              <div style={{ flex: '1', width: '-webkit-fill-available', marginTop: '1em' }}>
                 {typeof parsedChildren !== 'string' && parsedChildren?.map((child) => (
-                  <data-card {...child} variant="default" background="light" />
+                  <data-card {...child} variant="default" nested={true} />
                 ))}
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row-reverse' }}>
@@ -152,7 +203,12 @@ export class DataCard {
 
     return (
       <div style={{ width: '-webkit-fill-available' }}>
-        <div class="card-container" style={{ backgroundColor: 'var(--lighterBG)' }}>
+        <div
+          class="card-container"
+          style={{
+            backgroundColor: this.nested ? 'var(--lighterBG)' : undefined,
+          }}
+        >
           {this.imageUrl && this.imageUrl !== '' ? (
             <div class="image-wrapper">
               <img class="card-image" src={this.imageUrl} alt="card image" />
@@ -174,7 +230,7 @@ export class DataCard {
                 <TextProp prop={parsedTextRight} alignRight textClass="bodyText" />
               </div>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flex: '1' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flex: '1', marginTop: '0.75em' }}>
               {parsedChildren ?
                 <button onClick={this.onChildrenClick} style={{ display: 'flex' }}>
                   <span class="subtitle" style={{ textDecoration: 'underline' }}>{parsedChildren.length} Files / Children</span>

@@ -9,17 +9,53 @@ import { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObj
 export { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
 export namespace Components {
     interface DataCard {
-        "background"?: 'light';
+        /**
+          * Body text of the card
+         */
         "bodyText"?: TextPropType;
+        /**
+          * Array of children cards to be displayed on the card
+         */
         "childrenData"?: Array<DataCard> | string;
+        /**
+          * Title of the card
+         */
         "dataTitle": TextPropType;
+        /**
+          * URL to be used for downloading the file
+         */
         "downloadUrl"?: string;
+        /**
+          * Array of download buttons to be displayed on the card
+         */
         "downloads"?: Array<DownloadObj> | string;
+        /**
+          * URL of the image to be displayed on the card
+         */
         "imageUrl"?: string;
-        "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl>;
+        /**
+          * Array of metadata to be displayed on the card in the detailed view
+         */
+        "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl> | string;
+        /**
+          * Whether the card is being used inside of the detailed view
+         */
+        "nested": boolean;
+        /**
+          * Subtitle of the card
+         */
         "subTitle"?: TextPropType;
+        /**
+          * Array of tags to be displayed on the card
+         */
         "tags"?: Array<Tag> | string;
+        /**
+          * Text to be displayed on the right of the card
+         */
         "textRight"?: TextPropType;
+        /**
+          * Variant of the card
+         */
         "variant"?: 'default' | 'detailed' | 'minimal';
     }
 }
@@ -51,18 +87,54 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DataCard {
-        "background"?: 'light';
+        /**
+          * Body text of the card
+         */
         "bodyText"?: TextPropType;
+        /**
+          * Array of children cards to be displayed on the card
+         */
         "childrenData"?: Array<DataCard> | string;
+        /**
+          * Title of the card
+         */
         "dataTitle"?: TextPropType;
+        /**
+          * URL to be used for downloading the file
+         */
         "downloadUrl"?: string;
+        /**
+          * Array of download buttons to be displayed on the card
+         */
         "downloads"?: Array<DownloadObj> | string;
+        /**
+          * URL of the image to be displayed on the card
+         */
         "imageUrl"?: string;
-        "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl>;
+        /**
+          * Array of metadata to be displayed on the card in the detailed view
+         */
+        "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl> | string;
+        /**
+          * Whether the card is being used inside of the detailed view
+         */
+        "nested"?: boolean;
         "onEditData"?: (event: DataCardCustomEvent<EditEvent>) => void;
+        /**
+          * Subtitle of the card
+         */
         "subTitle"?: TextPropType;
+        /**
+          * Array of tags to be displayed on the card
+         */
         "tags"?: Array<Tag> | string;
+        /**
+          * Text to be displayed on the right of the card
+         */
         "textRight"?: TextPropType;
+        /**
+          * Variant of the card
+         */
         "variant"?: 'default' | 'detailed' | 'minimal';
     }
     interface IntrinsicElements {

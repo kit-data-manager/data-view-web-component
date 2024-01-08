@@ -7,20 +7,20 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type                                          | Default     |
-| -------------- | --------------- | ----------- | --------------------------------------------- | ----------- |
-| `background`   | `background`    |             | `"light"`                                     | `undefined` |
-| `bodyText`     | `body-text`     |             | `string \| { value: string; label: string; }` | `undefined` |
-| `childrenData` | `children-data` |             | `DataCard[] \| string`                        | `undefined` |
-| `dataTitle`    | `data-title`    |             | `string \| { value: string; label: string; }` | `undefined` |
-| `downloadUrl`  | `download-url`  |             | `string`                                      | `undefined` |
-| `downloads`    | `downloads`     |             | `DownloadObj[] \| string`                     | `undefined` |
-| `imageUrl`     | `image-url`     |             | `string`                                      | `undefined` |
-| `metadata`     | --              |             | `(ValueLabelObj \| ValueLabelObjWithUrl)[]`   | `undefined` |
-| `subTitle`     | `sub-title`     |             | `string \| { value: string; label: string; }` | `undefined` |
-| `tags`         | `tags`          |             | `Tag[] \| string`                             | `undefined` |
-| `textRight`    | `text-right`    |             | `string \| { value: string; label: string; }` | `undefined` |
-| `variant`      | `variant`       |             | `"default" \| "detailed" \| "minimal"`        | `'default'` |
+| Property       | Attribute       | Description                                                        | Type                                                  | Default     |
+| -------------- | --------------- | ------------------------------------------------------------------ | ----------------------------------------------------- | ----------- |
+| `bodyText`     | `body-text`     | Body text of the card                                              | `string \| { value: string; label: string; }`         | `undefined` |
+| `childrenData` | `children-data` | Array of children cards to be displayed on the card                | `DataCard[] \| string`                                | `undefined` |
+| `dataTitle`    | `data-title`    | Title of the card                                                  | `string \| { value: string; label: string; }`         | `undefined` |
+| `downloadUrl`  | `download-url`  | URL to be used for downloading the file                            | `string`                                              | `undefined` |
+| `downloads`    | `downloads`     | Array of download buttons to be displayed on the card              | `DownloadObj[] \| string`                             | `undefined` |
+| `imageUrl`     | `image-url`     | URL of the image to be displayed on the card                       | `string`                                              | `undefined` |
+| `metadata`     | `metadata`      | Array of metadata to be displayed on the card in the detailed view | `(ValueLabelObj \| ValueLabelObjWithUrl)[] \| string` | `undefined` |
+| `nested`       | `nested`        | Whether the card is being used inside of the detailed view         | `boolean`                                             | `false`     |
+| `subTitle`     | `sub-title`     | Subtitle of the card                                               | `string \| { value: string; label: string; }`         | `undefined` |
+| `tags`         | `tags`          | Array of tags to be displayed on the card                          | `Tag[] \| string`                                     | `undefined` |
+| `textRight`    | `text-right`    | Text to be displayed on the right of the card                      | `string \| { value: string; label: string; }`         | `undefined` |
+| `variant`      | `variant`       | Variant of the card                                                | `"default" \| "detailed" \| "minimal"`                | `'default'` |
 
 
 ## Events

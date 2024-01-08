@@ -24,7 +24,17 @@ const meta = {
       color: 'blue',
       iconName: 'ci:lock'
     }],
-    metadata: {},
+    metadata: [
+      { label: 'Publisher', value: 'KIT' },
+      { label: 'Publication Year', value: '2020' },
+      { label: 'Resource Type', value: 'Dataset' },
+      { label: 'Resource Format', value: 'CSV' },
+      { label: 'Created at', value: '2024-01-01 00:00:00' },
+      { label: 'Last modified', value: '2024-01-01 00:00:00' },
+      { label: 'License', value: 'Apache 2.0' },
+      { label: 'Related identifiers', value: 'None' },
+      { label: 'Alternate identifiers', value: '211fae3e-4f7e-4c3e-8f3a-9f4c9c5c9c9c', url: 'http://localhost' },
+    ],
     variant: "My Component",
     childrenData: [],
     downloadUrl: "test",
