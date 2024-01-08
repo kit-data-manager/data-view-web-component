@@ -78,6 +78,18 @@ Minimal.args = {
   variant: 'minimal',
 };
 
+export const Detailed: Story = Template.bind({});
+Detailed.args = {
+  ...Detailed.args,
+  variant: 'detailed',
+};
+
 
 export const SFB980 = Template.bind({});
 SFB980.args = exampleSFB980;
+
+export const SFB980detailed = Template.bind({});
+SFB980detailed.args = {
+  ...exampleSFB980,
+  variant: 'detailed',
+};

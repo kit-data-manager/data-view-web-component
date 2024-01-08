@@ -57,6 +57,40 @@ button, input[type="submit"], input[type="reset"], a {
   z-index: 10;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 2em;
+}
+
+.card-container-detailed {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: var(--mainBG);
+  display: flex;
+  overflow: hidden;
+  gap: 10px;
+  /* z-index: 20; */
+}
+
+.metadata-container {
+  background-color: var(--lighterBG);
+  padding: 16px;
+  height: -webkit-fill-available;
+  flex: 2;
+  border-radius: 16px;
+}
+
 .card-container-minimal {
   position: relative;
   padding: .1em;

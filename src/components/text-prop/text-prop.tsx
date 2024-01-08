@@ -4,12 +4,15 @@ import { LabelValue } from "../label-value/label-value";
 import { ComponentProps } from "react";
 
 type Props = Omit<ComponentProps<typeof LabelValue>, 'label' | 'value'> & {
-	prop: string | ValueLabelObj | ValueLabelObjWithUrl;
+	prop: string | ValueLabelObj | ValueLabelObjWithUrl | undefined;
 	textClass?: string;
 }
 
 export const TextProp = (props: Props) => {
 	const { prop, textClass } = props;
+	if (!prop) {
+		return null;
+	}
 	if (typeof prop === 'string') {
 		return (
 			<p class={textClass}>{prop}</p>

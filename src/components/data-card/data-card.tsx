@@ -23,6 +23,8 @@ export class DataCard {
 
   @Prop() downloadUrl?: string;
 
+  @Prop() background?: 'light';
+
   @Prop() downloads?: Array<DownloadObj> | string;
 
   @Prop() tags?: Array<Tag> | string;
@@ -86,9 +88,71 @@ export class DataCard {
       )
     }
 
+    if (this.variant === 'detailed') {
+      return (
+        <div class="modal">
+          <div class="card-container-detailed">
+            <div class="metadata-container">
+              <p class="title">Metadata</p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: '7' }}>
+              <div class="card-container">
+                {this.imageUrl && this.imageUrl !== '' ? (
+                  <div class="image-wrapper">
+                    <img class="card-image" src={this.imageUrl} alt="card image" />
+                  </div>
+                ) : null}
+                <div class="main-card-wrapper">
+                  <div class="tag-container">
+                    {typeof parsedTags !== 'string' && parsedTags?.map((tag) => (
+                      <TagComponent tag={tag} />
+                    ))}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div class="wrapper-middle">
+                      <TextProp prop={parsedTitle} textClass="title" />
+                      <TextProp prop={parsedSubtitle} textClass="subtitle" />
+                      <TextProp prop={parsedBodyText} textClass="bodyText" />
+                    </div>
+                    <div class="wrapper-right">
+                      <TextProp prop={parsedTextRight} alignRight textClass="bodyText" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style={{ display: 'flex', flex: '1', width: '-webkit-fill-available' }}>
+                {typeof parsedChildren !== 'string' && parsedChildren?.map((child) => (
+                  <data-card {...child} variant="default" background="light" />
+                ))}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row-reverse' }}>
+                <div style={{ display: 'flex', gap: '0.5em' }}>
+                    {typeof parsedDownloads !== 'string' && parsedDownloads?.filter(download => download.position !== 'metadata-container').map((download) => (
+                      <a download={download.label} target='_blank' href={download.url} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
+                        <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
+                        <span class="subtitle">{download.label}</span>
+                      </a>
+                    ))}
+                    {this.downloadUrl && this.downloadUrl !== '' ? (
+                      <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em' }}>
+                        <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
+                      </a>
+                    ) : null}
+                    <button onClick={this.onEdit} style={{ height: '1.5em' }}>
+                      <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
+                    </button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+
     return (
-      <div>
-        <div class="card-container">
+      <div style={{ width: '-webkit-fill-available' }}>
+        <div class="card-container" style={{ backgroundColor: 'var(--lighterBG)' }}>
           {this.imageUrl && this.imageUrl !== '' ? (
             <div class="image-wrapper">
               <img class="card-image" src={this.imageUrl} alt="card image" />

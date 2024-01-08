@@ -9,6 +9,7 @@
 
 | Property       | Attribute       | Description | Type                                          | Default     |
 | -------------- | --------------- | ----------- | --------------------------------------------- | ----------- |
+| `background`   | `background`    |             | `"light"`                                     | `undefined` |
 | `bodyText`     | `body-text`     |             | `string \| { value: string; label: string; }` | `undefined` |
 | `childrenData` | `children-data` |             | `DataCard[] \| string`                        | `undefined` |
 | `dataTitle`    | `data-title`    |             | `string \| { value: string; label: string; }` | `undefined` |

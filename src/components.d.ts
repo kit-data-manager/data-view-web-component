@@ -9,6 +9,7 @@ import { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObj
 export { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
 export namespace Components {
     interface DataCard {
+        "background"?: 'light';
         "bodyText"?: TextPropType;
         "childrenData"?: Array<DataCard> | string;
         "dataTitle": TextPropType;
@@ -50,6 +51,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DataCard {
+        "background"?: 'light';
         "bodyText"?: TextPropType;
         "childrenData"?: Array<DataCard> | string;
         "dataTitle"?: TextPropType;

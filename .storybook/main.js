@@ -8,10 +8,15 @@ const config = {
   ],
   framework: {
     name: '@storybook/web-components-vite',
-    options: {},
+    options: {
+    },
   },
   docs: {
     autodocs: 'tag',
+  },
+  async viteFinal(config) {
+    config.assetsInclude = ['/sb-preview/runtime.js'];
+    return config;
   },
 };
 export default config;
