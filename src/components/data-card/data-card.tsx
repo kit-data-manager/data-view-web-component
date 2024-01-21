@@ -43,6 +43,11 @@ export class DataCard {
   @Prop() downloadUrl?: string;
 
   /**
+   * URL to be opened to edit the file
+   */
+  @Prop() editUrl?: string;
+
+  /**
    * Array of download buttons to be displayed on the card
    */
   @Prop() downloads?: Array<DownloadObj> | string;
@@ -97,6 +102,7 @@ export class DataCard {
     const parsedTags = parseProp(this.tags);
     const parsedMetadata = parseProp(this.metadata);
 
+    // Minimal variant
     if (this.variant === 'minimal') {
       return (
         <div>
@@ -129,20 +135,31 @@ export class DataCard {
       )
     }
 
+    // Detailed variant
     if (this.variant === 'detailed') {
       return (
         <div class="modal">
           <div class="card-container-detailed">
             <div class="metadata-container">
-              <p class="title">Metadata</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75em', marginTop: '0.75em' }}>
-                {typeof parsedMetadata !== 'string' && parsedMetadata?.map((metadata) => (
-                  <LabelValue
-                    label={metadata.label}
-                    value={metadata.value}
-                    valueTextClass='bodyText'
-                    url={'url' in metadata ? metadata.url : undefined}
-                  />
+              <div style={{ flex: '1' }}>
+                <p class="title">Metadata</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75em', marginTop: '0.75em' }}>
+                  {typeof parsedMetadata !== 'string' && parsedMetadata?.map((metadata) => (
+                    <LabelValue
+                      label={metadata.label}
+                      value={metadata.value}
+                      valueTextClass='bodyText'
+                      url={'url' in metadata ? metadata.url : undefined}
+                    />
+                  ))}
+                </div>
+            </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row-reverse', gap: '0.5em' }}>
+                {typeof parsedDownloads !== 'string' && parsedDownloads?.filter(download => download.position === 'metadata-container').map((download) => (
+                  <a download={download.label} target='_blank' href={download.url} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
+                    <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
+                    <span class="subtitle">{download.label}</span>
+                  </a>
                 ))}
               </div>
             </div>
@@ -185,13 +202,21 @@ export class DataCard {
                       </a>
                     ))}
                     {this.downloadUrl && this.downloadUrl !== '' ? (
-                      <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em' }}>
+                      <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
                         <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
+                        <span class="subtitle">
+                          Download
+                        </span>
                       </a>
                     ) : null}
-                    <button onClick={this.onEdit} style={{ height: '1.5em' }}>
-                      <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
-                    </button>
+                    {this.editUrl && this.editUrl !== '' ? (
+                      <a target='_blank' href={this.editUrl} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
+                        <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
+                        <span class="subtitle">
+                          Edit
+                        </span>
+                      </a>
+                    ) : null}
                   </div>
               </div>
             </div>
@@ -200,7 +225,7 @@ export class DataCard {
       );
     }
 
-
+    // Default variant
     return (
       <div style={{ width: '-webkit-fill-available' }}>
         <div
@@ -244,13 +269,21 @@ export class DataCard {
                     </a>
                   ))}
                   {this.downloadUrl && this.downloadUrl !== '' ? (
-                    <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em' }}>
+                    <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
                       <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
+                      <span class="subtitle">
+                        Download
+                      </span>
                     </a>
                   ) : null}
-                  <button onClick={this.onEdit} style={{ height: '1.5em' }}>
-                    <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
-                  </button>
+                  {this.editUrl && this.editUrl !== '' ? (
+                    <a target='_blank' href={this.editUrl} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
+                      <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
+                      <span class="subtitle">
+                        Edit
+                      </span>
+                    </a>
+                  ) : null}
                 </div>
             </div>
           </div>

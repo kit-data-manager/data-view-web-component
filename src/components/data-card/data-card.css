@@ -89,6 +89,9 @@ button, input[type="submit"], input[type="reset"], a {
   height: -webkit-fill-available;
   flex: 2;
   border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-container-minimal {

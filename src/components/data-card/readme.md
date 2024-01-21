@@ -14,6 +14,7 @@
 | `dataTitle`    | `data-title`    | Title of the card                                                  | `string \| { value: string; label: string; }`         | `undefined` |
 | `downloadUrl`  | `download-url`  | URL to be used for downloading the file                            | `string`                                              | `undefined` |
 | `downloads`    | `downloads`     | Array of download buttons to be displayed on the card              | `DownloadObj[] \| string`                             | `undefined` |
+| `editUrl`      | `edit-url`      | URL to be opened to edit the file                                  | `string`                                              | `undefined` |
 | `imageUrl`     | `image-url`     | URL of the image to be displayed on the card                       | `string`                                              | `undefined` |
 | `metadata`     | `metadata`      | Array of metadata to be displayed on the card in the detailed view | `(ValueLabelObj \| ValueLabelObjWithUrl)[] \| string` | `undefined` |
 | `nested`       | `nested`        | Whether the card is being used inside of the detailed view         | `boolean`                                             | `false`     |

@@ -16,7 +16,7 @@
       {
          "url":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/000073cd-c425-4214-9648-b380ff20c61a/data/manuscript_metadata.xml",
          "label":"Metadata",
-         "position":"TEI"
+         "position":"metadata-container"
       },
       {
          "url":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/000073cd-c425-4214-9648-b380ff20c61a/data/pages.json",

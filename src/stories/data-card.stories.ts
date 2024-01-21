@@ -38,6 +38,7 @@ const meta = {
     variant: "My Component",
     childrenData: [],
     downloadUrl: "test",
+    editUrl: "test",
     downloads: [],
   },
   argTypes: {
@@ -73,6 +74,7 @@ const Template = (args: Story['args']) =>
     children-data='${JSON.stringify(args.childrenData)}'
     tags='${JSON.stringify(args.tags)}'
     download-url="${args.downloadUrl}"
+    edit-url="${args.editUrl}"
     downloads='${JSON.stringify(args.downloads)}'
     metadata='${JSON.stringify(args.metadata)}'
     variant="${args.variant}"
@@ -96,10 +98,14 @@ Detailed.args = {
 
 
 export const SFB980 = Template.bind({});
-SFB980.args = exampleSFB980;
+SFB980.args = {
+  ...exampleSFB980,
+  editUrl: 'test',
+};
 
 export const SFB980detailed = Template.bind({});
 SFB980detailed.args = {
   ...exampleSFB980,
   variant: 'detailed',
+  editUrl: 'test',
 };

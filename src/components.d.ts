@@ -30,6 +30,10 @@ export namespace Components {
          */
         "downloads"?: Array<DownloadObj> | string;
         /**
+          * URL to be opened to edit the file
+         */
+        "editUrl"?: string;
+        /**
           * URL of the image to be displayed on the card
          */
         "imageUrl"?: string;
@@ -107,6 +111,10 @@ declare namespace LocalJSX {
           * Array of download buttons to be displayed on the card
          */
         "downloads"?: Array<DownloadObj> | string;
+        /**
+          * URL to be opened to edit the file
+         */
+        "editUrl"?: string;
         /**
           * URL of the image to be displayed on the card
          */
