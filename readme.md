@@ -42,4 +42,4 @@ All Icons from this list can be used:
 https://icon-sets.iconify.design/
 
 ### Props
-TODO
+[Props & Types](src/components/data-card/readme.md)
