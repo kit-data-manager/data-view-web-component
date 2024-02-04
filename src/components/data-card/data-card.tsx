@@ -1,10 +1,11 @@
 import { Component, Event, EventEmitter, Prop, State, h } from '@stencil/core';
-import { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from './data-card-types';
+import { ActionEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl, ActionButtonInterface } from './data-card-types';
 // import { LabelValue } from '../label-value/label-value';
 import { TextProp } from '../text-prop/text-prop';
 import { TagComponent } from '../tag/tag';
 import 'iconify-icon';
 import { LabelValue } from '../label-value/label-value';
+import { ActionButton } from '../action-button/action-button';
 
 @Component({
   tag: 'data-card',
@@ -38,19 +39,9 @@ export class DataCard {
   @Prop() textRight?: TextPropType;
 
   /**
-   * URL to be used for downloading the file
+   * Array of action buttons to be displayed on the card
    */
-  @Prop() downloadUrl?: string;
-
-  /**
-   * URL to be opened to edit the file
-   */
-  @Prop() editUrl?: string;
-
-  /**
-   * Array of download buttons to be displayed on the card
-   */
-  @Prop() downloads?: Array<DownloadObj> | string;
+  @Prop() actionButtons?: Array<ActionButtonInterface> | string;
 
   /**
    * Array of tags to be displayed on the card
@@ -82,10 +73,13 @@ export class DataCard {
    */
   @State() hasChildrenOpened = false;
 
-  @Event() editData: EventEmitter<EditEvent>;
+  /**
+   * Event emitted when an action button is clicked
+   */
+  @Event() actionClick: EventEmitter<ActionEvent>;
 
-  onEdit = () => {
-    this.editData.emit({ object: this });
+  onActionPress = (identifier: string) => {
+    this.actionClick.emit({ dataObject: this, eventIdentifier: identifier });
   };
 
   onChildrenClick = () => {
@@ -98,7 +92,7 @@ export class DataCard {
     const parsedBodyText = parseProp(this.bodyText);
     const parsedTextRight = parseProp(this.textRight);
     const parsedChildren = parseProp(this.childrenData);
-    const parsedDownloads = parseProp(this.downloads);
+    const parsedActionButtons = parseProp(this.actionButtons);
     const parsedTags = parseProp(this.tags);
     const parsedMetadata = parseProp(this.metadata);
 
@@ -108,10 +102,10 @@ export class DataCard {
         <div>
           <div class="card-container-minimal">
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em', marginRight: '.5em' }}>
-                <iconify-icon icon="ci:download" height="1.2em"></iconify-icon>
-              </a>
-              <p class="title" style={{ fontSize: '.9em' }}>{typeof parsedTitle === 'string' ? parsedTitle : parsedTitle.value}</p>
+              {typeof parsedActionButtons !== 'string' && parsedActionButtons?.filter(action => action.position !== 'metadata-container').map((action) => (
+                <ActionButton noLabel action={action} onActionPress={this.onActionPress} />
+              ))}
+              <p class="title" style={{ fontSize: '.9em', marginLeft: '0.5em' }}>{typeof parsedTitle === 'string' ? parsedTitle : parsedTitle.value}</p>
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <p class="label">{typeof parsedTextRight === 'string' ? parsedTextRight : parsedTextRight.value}</p>
@@ -126,7 +120,7 @@ export class DataCard {
             <div class="minimal-children-container">
               {typeof parsedChildren !== 'string' && parsedChildren?.map((child) => (
                 <div class="minimal-child-wrapper">
-                  <data-card {...child} variant="minimal" />
+                  <data-card variant="minimal" {...child} />
                 </div>
               ))}
             </div>
@@ -155,11 +149,8 @@ export class DataCard {
                 </div>
             </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row-reverse', gap: '0.5em' }}>
-                {typeof parsedDownloads !== 'string' && parsedDownloads?.filter(download => download.position === 'metadata-container').map((download) => (
-                  <a download={download.label} target='_blank' href={download.url} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
-                    <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
-                    <span class="subtitle">{download.label}</span>
-                  </a>
+                {typeof parsedActionButtons !== 'string' && parsedActionButtons?.filter(action => action.position === 'metadata-container').map((action) => (
+                  <ActionButton action={action} onActionPress={this.onActionPress} />
                 ))}
               </div>
             </div>
@@ -190,33 +181,14 @@ export class DataCard {
               </div>
               <div style={{ flex: '1', width: '-webkit-fill-available', marginTop: '1em' }}>
                 {typeof parsedChildren !== 'string' && parsedChildren?.map((child) => (
-                  <data-card {...child} variant="default" nested={true} />
+                  <data-card variant="default" {...child} nested={true} />
                 ))}
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row-reverse' }}>
                 <div style={{ display: 'flex', gap: '0.5em' }}>
-                    {typeof parsedDownloads !== 'string' && parsedDownloads?.filter(download => download.position !== 'metadata-container').map((download) => (
-                      <a download={download.label} target='_blank' href={download.url} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
-                        <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
-                        <span class="subtitle">{download.label}</span>
-                      </a>
+                    {typeof parsedActionButtons !== 'string' && parsedActionButtons?.filter(action => action.position !== 'metadata-container').map((action) => (
+                      <ActionButton action={action} onActionPress={this.onActionPress} />
                     ))}
-                    {this.downloadUrl && this.downloadUrl !== '' ? (
-                      <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
-                        <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
-                        <span class="subtitle">
-                          Download
-                        </span>
-                      </a>
-                    ) : null}
-                    {this.editUrl && this.editUrl !== '' ? (
-                      <a target='_blank' href={this.editUrl} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
-                        <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
-                        <span class="subtitle">
-                          Edit
-                        </span>
-                      </a>
-                    ) : null}
                   </div>
               </div>
             </div>
@@ -262,28 +234,9 @@ export class DataCard {
                 </button>
                 : null}
               <div style={{ display: 'flex', gap: '0.5em' }}>
-                  {typeof parsedDownloads !== 'string' && parsedDownloads?.filter(download => download.position !== 'metadata-container').map((download) => (
-                    <a download={download.label} target='_blank' href={download.url} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
-                      <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
-                      <span class="subtitle">{download.label}</span>
-                    </a>
+                  {typeof parsedActionButtons !== 'string' && parsedActionButtons?.filter(action => action.position !== 'metadata-container').map((action) => (
+                      <ActionButton action={action} onActionPress={this.onActionPress} />
                   ))}
-                  {this.downloadUrl && this.downloadUrl !== '' ? (
-                    <a download target='_blank' href={this.downloadUrl} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
-                      <iconify-icon icon="ci:download" height="1.5em"></iconify-icon>
-                      <span class="subtitle">
-                        Download
-                      </span>
-                    </a>
-                  ) : null}
-                  {this.editUrl && this.editUrl !== '' ? (
-                    <a target='_blank' href={this.editUrl} style={{ height: '1.5em', display: 'flex', alignItems: 'center' }}>
-                      <iconify-icon icon="ci:note-edit" height="1.5em"></iconify-icon>
-                      <span class="subtitle">
-                        Edit
-                      </span>
-                    </a>
-                  ) : null}
                 </div>
             </div>
           </div>
@@ -309,6 +262,7 @@ function parseProp<T>(prop: T): T {
   try {
     return JSON.parse(prop);
   } catch (error) {
+    console.log('error parsing prop', prop, error, 'returning prop as is');
     return prop;
   }
 }

@@ -6,6 +6,8 @@
   }
 </style>
 
+
+
 <html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -21,7 +23,17 @@
       data-title="A sample resource"
       sub-title="KIT, 2020"
       variant="default"
-      download-url=""
+      action-buttons='[
+      {
+         "iconName":"ph:download-simple-light",
+         "label":"Download",
+         "url":"https://www.google.com"
+      },
+      {
+         "iconName":"ph:pencil",
+         "label":"Edit",
+         "eventIdentifier":"edit-sample"
+      }]'
       image-url="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg"
       body-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor."
       text-right='{
@@ -37,8 +49,9 @@
             "value":"2019-03-11T14:13:44Z",
             "label":"Created at"
          },
-         "downloads":[
+         "actionButtons":[
             {
+               "iconName":"ph:download-simple-light",
                "url":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090",
                "label":"DataCite"
             }
@@ -47,7 +60,11 @@
             {
                "dataTitle":"084r.master.jpg",
                "subtitle":"SFB 980 - A04, 2019",
-               "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.master.jpg",
+               "actionButtons": [{
+                  "iconName":"ph:download-simple-light",
+                  "label":"Download",
+                  "url":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.master.jpg"
+               }],
                "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
                "textRight":{
                   "value":"image/jpeg",
@@ -89,7 +106,11 @@
             {
                "dataTitle":"084r.thumb.jpg",
                "subtitle":"SFB 980 - A04, 2019",
-               "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
+               "actionButtons": [{
+                  "iconName":"ph:download-simple-light",
+                  "label":"Download",
+                  "url":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg"
+               }],
                "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
                "textRight":{
                   "value":"image/jpeg",
@@ -131,7 +152,11 @@
             {
                "dataTitle":"084r.tif",
                "subtitle":"SFB 980 - A04, 2019",
-               "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.tif",
+               "actionButtons": [{
+                  "iconName":"ph:download-simple-light",
+                  "label":"Download",
+                  "url":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.tif"
+               }],
                "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
                "textRight":{
                   "value":"image/jpeg",
@@ -206,3 +231,10 @@
     ></data-card>
   </body>
 </html>
+
+<script >
+   const dataCard = document.querySelector('data-card');
+   dataCard.addEventListener('actionClick', event => { 
+     console.log('actionClick', event)
+   })
+ </script>

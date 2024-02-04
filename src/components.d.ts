@@ -5,10 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
-export { DownloadObj, EditEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
+import { ActionButtonInterface, ActionEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
+export { ActionButtonInterface, ActionEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl } from "./components/data-card/data-card-types";
 export namespace Components {
     interface DataCard {
+        /**
+          * Array of action buttons to be displayed on the card
+         */
+        "actionButtons"?: Array<ActionButtonInterface> | string;
         /**
           * Body text of the card
          */
@@ -21,18 +25,6 @@ export namespace Components {
           * Title of the card
          */
         "dataTitle": TextPropType;
-        /**
-          * URL to be used for downloading the file
-         */
-        "downloadUrl"?: string;
-        /**
-          * Array of download buttons to be displayed on the card
-         */
-        "downloads"?: Array<DownloadObj> | string;
-        /**
-          * URL to be opened to edit the file
-         */
-        "editUrl"?: string;
         /**
           * URL of the image to be displayed on the card
          */
@@ -69,7 +61,7 @@ export interface DataCardCustomEvent<T> extends CustomEvent<T> {
 }
 declare global {
     interface HTMLDataCardElementEventMap {
-        "editData": EditEvent;
+        "actionClick": ActionEvent;
     }
     interface HTMLDataCardElement extends Components.DataCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDataCardElementEventMap>(type: K, listener: (this: HTMLDataCardElement, ev: DataCardCustomEvent<HTMLDataCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -92,6 +84,10 @@ declare global {
 declare namespace LocalJSX {
     interface DataCard {
         /**
+          * Array of action buttons to be displayed on the card
+         */
+        "actionButtons"?: Array<ActionButtonInterface> | string;
+        /**
           * Body text of the card
          */
         "bodyText"?: TextPropType;
@@ -104,18 +100,6 @@ declare namespace LocalJSX {
          */
         "dataTitle"?: TextPropType;
         /**
-          * URL to be used for downloading the file
-         */
-        "downloadUrl"?: string;
-        /**
-          * Array of download buttons to be displayed on the card
-         */
-        "downloads"?: Array<DownloadObj> | string;
-        /**
-          * URL to be opened to edit the file
-         */
-        "editUrl"?: string;
-        /**
           * URL of the image to be displayed on the card
          */
         "imageUrl"?: string;
@@ -127,7 +111,10 @@ declare namespace LocalJSX {
           * Whether the card is being used inside of the detailed view
          */
         "nested"?: boolean;
-        "onEditData"?: (event: DataCardCustomEvent<EditEvent>) => void;
+        /**
+          * Event emitted when an action button is clicked
+         */
+        "onActionClick"?: (event: DataCardCustomEvent<ActionEvent>) => void;
         /**
           * Subtitle of the card
          */

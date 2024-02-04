@@ -22,8 +22,22 @@ export type DownloadObj = {
     position?: 'metadata-container'
 }
 
-export type EditEvent = {
-    object: DataCard
+export type ActionButtonInterface = {
+    label: string,
+    url: string,
+    urlTarget?: string,
+    iconName: string,
+    position?: 'metadata-container'
+} | {
+    label: string,
+    iconName: string,
+    eventIdentifier: string,
+    position?: 'metadata-container'
+}
+
+export type ActionEvent = {
+    eventIdentifier: string,
+    dataObject: DataCard
 }
 
 export type TextPropType = string | ValueLabelObj
