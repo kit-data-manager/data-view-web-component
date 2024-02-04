@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 
+<style>
+  data-card {
+    /* --mainBG: red; */
+  }
+</style>
+
 <html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -14,12 +20,189 @@
     <data-card
       data-title="A sample resource"
       sub-title="KIT, 2020"
-      variant="detailed"
+      variant="default"
+      download-url=""
       image-url="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg"
       body-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor."
-      text-right='{ "label": "Date updated", "value": "2020-01-01" }'
-      children-data='[{&quot;text&quot;:&quot;A tag&quot;,&quot;color&quot;:&quot;green&quot;},{&quot;text&quot;:&quot;Another tag&quot;,&quot;color&quot;:&quot;blue&quot;,&quot;iconName&quot;:&quot;ci:lock&quot;}]'
-      tags='[{&quot;text&quot;:&quot;example&quot;,&quot;color&quot;:&quot;green&quot;},{&quot;text&quot;:&quot;Another tag&quot;,&quot;color&quot;:&quot;blue&quot;,&quot;iconName&quot;:&quot;ci:lock&quot;}]'
+      text-right='{
+        "value":"2019-03-11T14:13:45Z",
+        "label":"Created at"
+      }'
+      children-data='[
+      {
+         "dataTitle":"Vatikan Vat Gr 247, 084r",
+         "subtitle":"SFB 980 - A04, 2019",
+         "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
+         "textRight":{
+            "value":"2019-03-11T14:13:44Z",
+            "label":"Created at"
+         },
+         "downloads":[
+            {
+               "url":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090",
+               "label":"DataCite"
+            }
+         ],
+         "childrenData":[
+            {
+               "dataTitle":"084r.master.jpg",
+               "subtitle":"SFB 980 - A04, 2019",
+               "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.master.jpg",
+               "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
+               "textRight":{
+                  "value":"image/jpeg",
+                  "label":"MediaType"
+               },
+               "tags":[
+                  {
+                     "text":"Master",
+                     "color":"blue"
+                  }
+               ],
+               "metadata":[
+                  {
+                     "label":"Checksum",
+                     "value":"sha1:3ffa407982d4aa653f8dcf2232ac81df15124abb"
+                  },
+                  {
+                     "label":"Size",
+                     "value":"8678356"
+                  },
+                  {
+                     "label":"Resolution (x)",
+                     "value":"400"
+                  },
+                  {
+                     "label":"Resolution (y)",
+                     "value":"400"
+                  },
+                  {
+                     "label":"Width",
+                     "value":"3307px"
+                  },
+                  {
+                     "label":"Height",
+                     "value":"4677px"
+                  }
+               ]
+            },
+            {
+               "dataTitle":"084r.thumb.jpg",
+               "subtitle":"SFB 980 - A04, 2019",
+               "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
+               "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
+               "textRight":{
+                  "value":"image/jpeg",
+                  "label":"MediaType"
+               },
+               "tags":[
+                  {
+                     "text":"Thumb",
+                     "color":"blue"
+                  }
+               ],
+               "metadata":[
+                  {
+                     "label":"Checksum",
+                     "value":"sha1:6138a07ff149326e51b22bb74e26c17cf13b0e18"
+                  },
+                  {
+                     "label":"Size",
+                     "value":"7008"
+                  },
+                  {
+                     "label":"Resolution (x)",
+                     "value":"400"
+                  },
+                  {
+                     "label":"Resolution (y)",
+                     "value":"400"
+                  },
+                  {
+                     "label":"Width",
+                     "value":"106px"
+                  },
+                  {
+                     "label":"Height",
+                     "value":"150px"
+                  }
+               ]
+            },
+            {
+               "dataTitle":"084r.tif",
+               "subtitle":"SFB 980 - A04, 2019",
+               "downloadUrl":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.tif",
+               "imageURL":"http://episteme2.scc.kit.edu:8080/api/v1/dataresources/85ac585d-da66-4f9e-bc5c-f55851a1c090/data/084r.thumb.jpg",
+               "textRight":{
+                  "value":"image/jpeg",
+                  "label":"MediaType"
+               },
+               "tags":[
+                  {
+                     "text":"Original",
+                     "color":"blue"
+                  }
+               ],
+               "metadata":[
+                  {
+                     "label":"Checksum",
+                     "value":"sha1:da5e6acf67dbb56d31900f22d9db73dfa5cae312"
+                  },
+                  {
+                     "label":"Size",
+                     "value":"15467351"
+                  },
+                  {
+                     "label":"Resolution (x)",
+                     "value":"400"
+                  },
+                  {
+                     "label":"Resolution (y)",
+                     "value":"400"
+                  },
+                  {
+                     "label":"Width",
+                     "value":"3307px"
+                  },
+                  {
+                     "label":"Height",
+                     "value":"4677px"
+                  }
+               ]
+            }
+         ]
+      }
+   ]'
+      tags='[
+      {
+         "text":"Manuscript",
+         "color":"blue"
+      },
+      {
+         "text":"SFB 980 - A04",
+         "color":"blue",
+         "url":"..."
+      },
+      {
+         "text":"Open",
+         "color":"green",
+         "iconName":"fa:lock"
+      }
+   ]'
+    metadata='[
+    {
+       "label":"Location",
+       "value":"Biblioteca Apostolica Vaticana"
+    },
+    {
+       "label":"Location",
+       "value":"Vatikan"
+    },
+    {
+       "label":"Pages",
+       "value":"18"
+    }
+ ]'
     ></data-card>
   </body>
 </html>

@@ -10,7 +10,7 @@ export const TagComponent = ({ tag }: Props) => {
 	return (
 		<a class="tag" style={{ backgroundColor: tag.color, pointerEvents: clickable ? undefined : 'none' }} target="_blank" href={tag.url}>
 			{tag.iconName ? (
-				<iconify-icon icon={tag.iconName} style={{ color: '#fff', fontSize: '18px' }}></iconify-icon>
+				<iconify-icon icon={tag.iconName} style={{ color: '#fff', fontSize: '12px' }}></iconify-icon>
 			) : null}
 			<span class="tag-text" style={{ textDecoration: clickable ? 'underline' : 'none' }}>{tag.text}</span>
 		</a>

@@ -1,7 +1,7 @@
 {
   "name": "data-view-web-component",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "Generic Web Component used to display various hierarchical data in a card format",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.js",
@@ -12,7 +12,7 @@
   "unpkg": "dist/data-view-web-component/data-view-web-component.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "https://gitlab.kit.edu/kit/scc/dem/dem-students/arnow/data-view-web-component"
   },
   "files": [
     "dist/",

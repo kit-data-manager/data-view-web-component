@@ -216,26 +216,27 @@ button, input[type="submit"], input[type="reset"], a {
 
 .tag-container {
   display: flex;
-  gap: 0.5em;
+  gap: 0.25em;
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: 0.25em;
 }
 
 .tag {
-  border-radius: 16px;
+  border-radius: 4px;
   padding: 0.15em;
-  padding-left: 0.50em;
-  padding-right: 0.50em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
   gap: 0.3em;
   flex-shrink: 1;
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   align-items: center;
 }
 
 .tag-text {
-  font-size: 0.9em;
+  font-size: 0.75em;
   font-weight: 600;
   color: white;
 }
