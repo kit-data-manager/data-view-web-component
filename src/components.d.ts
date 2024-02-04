@@ -22,6 +22,10 @@ export namespace Components {
          */
         "childrenData"?: Array<DataCard> | string;
         /**
+          * Clickable label to display when the card has children
+         */
+        "childrenLabel"?: string;
+        /**
           * Title of the card
          */
         "dataTitle": TextPropType;
@@ -95,6 +99,10 @@ declare namespace LocalJSX {
           * Array of children cards to be displayed on the card
          */
         "childrenData"?: Array<DataCard> | string;
+        /**
+          * Clickable label to display when the card has children
+         */
+        "childrenLabel"?: string;
         /**
           * Title of the card
          */

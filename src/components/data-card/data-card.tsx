@@ -54,6 +54,11 @@ export class DataCard {
   @Prop() childrenData?: Array<DataCard> | string
 
   /**
+   * Clickable label to display when the card has children
+   */
+  @Prop() childrenLabel?: string
+
+  /**
    * Array of metadata to be displayed on the card in the detailed view
    */
   @Prop() metadata?: Array<ValueLabelObj | ValueLabelObjWithUrl> | string
@@ -230,7 +235,7 @@ export class DataCard {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flex: '1', marginTop: '0.75em' }}>
               {parsedChildren ?
                 <button onClick={this.onChildrenClick} style={{ display: 'flex' }}>
-                  <span class="subtitle" style={{ textDecoration: 'underline' }}>{parsedChildren.length} Files / Children</span>
+                  <span class="subtitle" style={{ textDecoration: 'underline' }}>{parsedChildren.length} {this.childrenLabel ?? 'Files / Children'}</span>
                 </button>
                 : null}
               <div style={{ display: 'flex', gap: '0.5em' }}>
