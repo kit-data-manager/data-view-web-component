@@ -13,7 +13,16 @@ export const TextProp = (props: Props) => {
 	if (!prop) {
 		return null;
 	}
+
 	if (typeof prop === 'string') {
+
+		// Check if the string resembles HTML, in that case render it as HTML
+		if (prop.match(/<[^>]*>/)) {
+			return (
+				<div class={textClass} innerHTML={prop}></div>
+			)
+		}
+
 		return (
 			<p class={textClass}>{prop}</p>
 		)
