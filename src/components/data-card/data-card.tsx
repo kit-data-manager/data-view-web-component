@@ -222,7 +222,7 @@ export class DataCard {
                 <TagComponent tag={tag} />
               ))}
             </div>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', flex: '1' }}>
               <div class="wrapper-middle">
                 <TextProp prop={parsedTitle} textClass="title" />
                 <TextProp prop={parsedSubtitle} textClass="subtitle" />
