@@ -19,6 +19,7 @@
     <script nomodule src="/build/data-view-web-component.js"></script>
   </head>
   <body>
+   <div style="display: flex; flex-direction: column; gap: 2em;">
     <data-card
       data-title="A sample resource"
       sub-title="KIT, 2020"
@@ -35,6 +36,7 @@
          "eventIdentifier":"edit-sample"
       }]'
       image-url="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg"
+      image-url2="https://icons.iconarchive.com/icons/treetog/i/72/Pictures-icon.png"
       body-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor."
       text-right='{
         "value":"2019-03-11T14:13:45Z",
@@ -229,6 +231,47 @@
     }
  ]'
     ></data-card>
+    <data-card
+      data-title="A sample resource"
+      sub-title="KIT, 2020"
+      variant="default"
+      image-url="https://icons.iconarchive.com/icons/treetog/i/72/Pictures-icon.png"
+      text-right='{
+        "value":"2019-03-11T14:13:45Z",
+        "label":"Created at"
+      }'
+      tags='[
+      {
+         "text":"Manuscript",
+         "color":"blue"
+      },
+      {
+         "text":"SFB 980 - A04",
+         "color":"blue",
+         "url":"..."
+      },
+      {
+         "text":"Open",
+         "color":"green",
+         "iconName":"fa:lock"
+      }
+   ]'
+    metadata='[
+    {
+       "label":"Location",
+       "value":"Biblioteca Apostolica Vaticana"
+    },
+    {
+       "label":"Location",
+       "value":"Vatikan"
+    },
+    {
+       "label":"Pages",
+       "value":"18"
+    }
+ ]'
+    ></data-card>
+   </div>
   </body>
 </html>
 

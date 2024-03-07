@@ -204,7 +204,7 @@ export class DataCard {
 
     // Default variant
     return (
-      <div style={{ width: '-webkit-fill-available' }}>
+      <div style={{ width: '-webkit-fill-available', display: 'flex' }}>
         <div
           class="card-container"
           style={{
@@ -212,9 +212,9 @@ export class DataCard {
           }}
         >
           {this.imageUrl && this.imageUrl !== '' ? (
-            <div class="image-wrapper">
+            // <div class="image-wrapper">
               <img class="card-image" src={this.imageUrl} alt="card image" />
-            </div>
+            // </div>
           ) : null}
           <div class="main-card-wrapper">
             <div class="tag-container">
@@ -237,7 +237,7 @@ export class DataCard {
                 <button onClick={this.onChildrenClick} style={{ display: 'flex' }}>
                   <span class="subtitle" style={{ textDecoration: 'underline' }}>{parsedChildren.length} {this.childrenLabel ?? 'Files / Children'}</span>
                 </button>
-                : null}
+                : <div></div>}
               <div style={{ display: 'flex', gap: '0.5em' }}>
                   {typeof parsedActionButtons !== 'string' && parsedActionButtons?.filter(action => action.position !== 'metadata-container').map((action) => (
                       <ActionButton action={action} onActionPress={this.onActionPress} />
