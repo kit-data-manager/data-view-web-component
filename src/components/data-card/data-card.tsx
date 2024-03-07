@@ -69,6 +69,11 @@ export class DataCard {
   @Prop() variant?: 'default' | 'detailed' | 'minimal' = 'default';
 
   /**
+   * Variant of the card's children
+   */
+  @Prop() childrenVariant?: 'default' | 'minimal' = 'minimal';
+
+  /**
    * Whether the card is being used inside of the detailed view
    */
   @Prop() nested = false;
@@ -204,7 +209,7 @@ export class DataCard {
 
     // Default variant
     return (
-      <div style={{ width: '-webkit-fill-available', display: 'flex' }}>
+      <div style={{ }}>
         <div
           class="card-container"
           style={{
@@ -212,9 +217,9 @@ export class DataCard {
           }}
         >
           {this.imageUrl && this.imageUrl !== '' ? (
-            // <div class="image-wrapper">
+            <div class="image-wrapper">
               <img class="card-image" src={this.imageUrl} alt="card image" />
-            // </div>
+            </div>
           ) : null}
           <div class="main-card-wrapper">
             <div class="tag-container">
@@ -249,7 +254,7 @@ export class DataCard {
         {this.hasChildrenOpened ? (
           <div class="children-container">
             {typeof parsedChildren !== 'string' && parsedChildren?.map((child) => (
-              <data-card {...child} variant="minimal" />
+              <data-card {...child} variant={this.childrenVariant} />
             ))}
           </div>
         ) : null}

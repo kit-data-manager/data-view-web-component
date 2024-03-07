@@ -26,6 +26,10 @@ export namespace Components {
          */
         "childrenLabel"?: string;
         /**
+          * Variant of the card's children
+         */
+        "childrenVariant"?: 'default' | 'minimal';
+        /**
           * Title of the card
          */
         "dataTitle": TextPropType;
@@ -103,6 +107,10 @@ declare namespace LocalJSX {
           * Clickable label to display when the card has children
          */
         "childrenLabel"?: string;
+        /**
+          * Variant of the card's children
+         */
+        "childrenVariant"?: 'default' | 'minimal';
         /**
           * Title of the card
          */
