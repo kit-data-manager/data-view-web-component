@@ -7,28 +7,28 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                        | Type                                                  | Default     |
-| -------------- | --------------- | ------------------------------------------------------------------ | ----------------------------------------------------- | ----------- |
-| `bodyText`     | `body-text`     | Body text of the card                                              | `string \| { value: string; label: string; }`         | `undefined` |
-| `childrenData` | `children-data` | Array of children cards to be displayed on the card                | `DataCard[] \| string`                                | `undefined` |
-| `dataTitle`    | `data-title`    | Title of the card                                                  | `string \| { value: string; label: string; }`         | `undefined` |
-| `downloadUrl`  | `download-url`  | URL to be used for downloading the file                            | `string`                                              | `undefined` |
-| `downloads`    | `downloads`     | Array of download buttons to be displayed on the card              | `DownloadObj[] \| string`                             | `undefined` |
-| `editUrl`      | `edit-url`      | URL to be opened to edit the file                                  | `string`                                              | `undefined` |
-| `imageUrl`     | `image-url`     | URL of the image to be displayed on the card                       | `string`                                              | `undefined` |
-| `metadata`     | `metadata`      | Array of metadata to be displayed on the card in the detailed view | `(ValueLabelObj \| ValueLabelObjWithUrl)[] \| string` | `undefined` |
-| `nested`       | `nested`        | Whether the card is being used inside of the detailed view         | `boolean`                                             | `false`     |
-| `subTitle`     | `sub-title`     | Subtitle of the card                                               | `string \| { value: string; label: string; }`         | `undefined` |
-| `tags`         | `tags`          | Array of tags to be displayed on the card                          | `Tag[] \| string`                                     | `undefined` |
-| `textRight`    | `text-right`    | Text to be displayed on the right of the card                      | `string \| { value: string; label: string; }`         | `undefined` |
-| `variant`      | `variant`       | Variant of the card                                                | `"default" \| "detailed" \| "minimal"`                | `'default'` |
+| Property          | Attribute          | Description                                                        | Type                                                  | Default     |
+| ----------------- | ------------------ | ------------------------------------------------------------------ | ----------------------------------------------------- | ----------- |
+| `actionButtons`   | `action-buttons`   | Array of action buttons to be displayed on the card                | `ActionButtonInterface[] \| string`                   | `undefined` |
+| `bodyText`        | `body-text`        | Body text of the card                                              | `string \| { value: string; label: string; }`         | `undefined` |
+| `childrenData`    | `children-data`    | Array of children cards to be displayed on the card                | `DataCard[] \| string`                                | `undefined` |
+| `childrenLabel`   | `children-label`   | Clickable label to display when the card has children              | `string`                                              | `undefined` |
+| `childrenVariant` | `children-variant` | Variant of the card's children                                     | `"default" \| "minimal"`                              | `'minimal'` |
+| `dataTitle`       | `data-title`       | Title of the card                                                  | `string \| { value: string; label: string; }`         | `undefined` |
+| `imageUrl`        | `image-url`        | URL of the image to be displayed on the card                       | `string`                                              | `undefined` |
+| `metadata`        | `metadata`         | Array of metadata to be displayed on the card in the detailed view | `(ValueLabelObj \| ValueLabelObjWithUrl)[] \| string` | `undefined` |
+| `nested`          | `nested`           | Whether the card is being used inside of the detailed view         | `boolean`                                             | `false`     |
+| `subTitle`        | `sub-title`        | Subtitle of the card                                               | `string \| { value: string; label: string; }`         | `undefined` |
+| `tags`            | `tags`             | Array of tags to be displayed on the card                          | `Tag[] \| string`                                     | `undefined` |
+| `textRight`       | `text-right`       | Text to be displayed on the right of the card                      | `string \| { value: string; label: string; }`         | `undefined` |
+| `variant`         | `variant`          | Variant of the card                                                | `"default" \| "detailed" \| "minimal"`                | `'default'` |
 
 
 ## Events
 
-| Event      | Description | Type                                 |
-| ---------- | ----------- | ------------------------------------ |
-| `editData` |             | `CustomEvent<{ object: DataCard; }>` |
+| Event         | Description                                    | Type                                                              |
+| ------------- | ---------------------------------------------- | ----------------------------------------------------------------- |
+| `actionClick` | Event emitted when an action button is clicked | `CustomEvent<{ eventIdentifier: string; dataObject: DataCard; }>` |
 
 
 ## Dependencies
