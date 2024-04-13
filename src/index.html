@@ -2,16 +2,14 @@
 
 <style>
   data-card {
-    /* --mainBG: red; */
+    /* --mainBG: rgb(117, 141, 219); */
   }
 </style>
-
-
 
 <html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>DEM Data Card</title>
 
@@ -19,12 +17,16 @@
     <script nomodule src="/build/data-view-web-component.js"></script>
   </head>
   <body>
-   <div style="display: flex; flex-direction: column; gap: 2em;">
-    <data-card
-      data-title="A sample resource A sample resource A sample resource A sample resource A sample resource A sample resource A sample resource A sample resource"
-      sub-title="KIT, 2020"
-      variant="default"
-      action-buttons='[
+    <div style="display: flex; flex-direction: column; gap: 2em">
+      <data-card
+        data-title="A sample resource A sample resource A sample resource A sample resource A sample resource A sample resource A sample resource A sample resource"
+        sub-title="KIT, 2020"
+        sub-title2='{
+         "value":"Karlsruher Institut für Technologie",
+         "label":"Institution"
+       }'
+        variant="default"
+        action-buttons='[
       {
          "iconName":"ph:download-simple-light",
          "label":"Download",
@@ -35,15 +37,15 @@
          "label":"Edit",
          "eventIdentifier":"edit-sample"
       }]'
-      image-url="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg"
-      image-url2="https://icons.iconarchive.com/icons/treetog/i/72/Pictures-icon.png"
-      body-text="Lorem ipsum dolor sit <i>amet</i>, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor."
-      text-right='{
+        image-url="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg"
+        image-url2="https://icons.iconarchive.com/icons/treetog/i/72/Pictures-icon.png"
+        body-text="Lorem ipsum dolor sit <i>amet</i>, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor."
+        text-right='{
         "value":"20.01.2024",
         "label":"Created at"
       }'
-      children-variant="default"
-      children-data='[
+        children-variant="default"
+        children-data='[
       {
          "dataTitle":"Vatikan Vat Gr 247, 084r",
          "subtitle":"SFB 980 - A04, 2019",
@@ -201,7 +203,7 @@
          ]
       }
    ]'
-      tags='[
+        tags='[
       {
          "text":"Manuscript",
          "color":"blue"
@@ -257,7 +259,7 @@
          "iconName":"fa:lock"
       }
    ]'
-    metadata='[
+        metadata='[
     {
        "label":"Location",
        "value":"Biblioteca Apostolica Vaticana"
@@ -271,17 +273,17 @@
        "value":"18"
     }
  ]'
-    ></data-card>
-    <data-card
-      data-title="A sample resource"
-      sub-title="KIT, 2020"
-      variant="default"
-      image-url="https://icons.iconarchive.com/icons/treetog/i/72/Pictures-icon.png"
-      text-right='{
-        "value":"2019-03-11T14:13:45Z",
+      ></data-card>
+      <data-card
+        data-title="A sample resource"
+        sub-title="KIT, 2020"
+        variant="default"
+        image-url="https://icons.iconarchive.com/icons/treetog/i/72/Pictures-icon.png"
+        text-right='{
+        "value":"20.01.2024",
         "label":"Created at"
       }'
-      tags='[
+        tags='[
       {
          "text":"Manuscript",
          "color":"blue"
@@ -297,7 +299,7 @@
          "iconName":"fa:lock"
       }
    ]'
-    metadata='[
+        metadata='[
     {
        "label":"Location",
        "value":"Biblioteca Apostolica Vaticana"
@@ -311,126 +313,14 @@
        "value":"18"
     }
  ]'
-    ></data-card>
-   </div>
+      ></data-card>
+    </div>
   </body>
 </html>
 
-<script >
-      //    {
-      //    "text":"Manuscript",
-      //    "color":"blue"
-      // },
-      // {
-      //    "text":"SFB 980 - A04",
-      //    "color":"blue",
-      //    "url":"..."
-      // },
-      // {
-      //    "text":"Open",
-      //    "color":"green",
-      //    "iconName":"fa:lock"
-      // },
-      // {
-      //    "text":"Manuscript",
-      //    "color":"blue"
-      // },
-      // {
-      //    "text":"SFB 980 - A04",
-      //    "color":"blue",
-      //    "url":"..."
-      // },
-      // {
-      //    "text":"Open",
-      //    "color":"green",
-      //    "iconName":"fa:lock"
-      // },
-      // {
-      //    "text":"Manuscript",
-      //    "color":"blue"
-      // },
-      // {
-      //    "text":"SFB 980 - A04",
-      //    "color":"blue",
-      //    "url":"..."
-      // },
-      // {
-      //    "text":"Open",
-      //    "color":"green",
-      //    "iconName":"fa:lock"
-      // },
-      // {
-      //    "text":"Manuscript",
-      //    "color":"blue"
-      // },
-      // {
-      //    "text":"SFB 980 - A04",
-      //    "color":"blue",
-      //    "url":"..."
-      // },
-      // {
-      //    "text":"Open",
-      //    "color":"green",
-      //    "iconName":"fa:lock"
-      // },
-      // {
-      //    "text":"Manuscript",
-      //    "color":"blue"
-      // },
-      // {
-      //    "text":"SFB 980 - A04",
-      //    "color":"blue",
-      //    "url":"..."
-      // },
-      // {
-      //    "text":"Open",
-      //    "color":"green",
-      //    "iconName":"fa:lock"
-      // },
-      // {
-      //    "text":"Manuscript",
-      //    "color":"blue"
-      // },
-      // {
-      //    "text":"SFB 980 - A04",
-      //    "color":"blue",
-      //    "url":"..."
-      // },
-      // {
-      //    "text":"Open",
-      //    "color":"green",
-      //    "iconName":"fa:lock"
-      // },
-      // {
-      //    "text":"Manuscript",
-      //    "color":"blue"
-      // },
-      // {
-      //    "text":"SFB 980 - A04",
-      //    "color":"blue",
-      //    "url":"..."
-      // },
-      // {
-      //    "text":"Open",
-      //    "color":"green",
-      //    "iconName":"fa:lock"
-      // },
-      // {
-      //    "text":"Manuscript",
-      //    "color":"blue"
-      // },
-      // {
-      //    "text":"SFB 980 - A04",
-      //    "color":"blue",
-      //    "url":"..."
-      // },
-      // {
-      //    "text":"Open",
-      //    "color":"green",
-      //    "iconName":"fa:lock"
-      // }
-   const dataCard = document.querySelector('data-card');
-   dataCard.addEventListener('actionClick', event => { 
-     console.log('actionClick', event)
-   })
- </script>
+<script>
+  const dataCard = document.querySelector('data-card');
+  dataCard.addEventListener('actionClick', event => {
+    console.log('actionClick', event);
+  });
+</script>

@@ -1,9 +1,17 @@
 :host {
-  --mainBG: #CBCBCB;
-  --darkerBG: #BDBDBD;
-  --lighterBG: #D9D9D9;
+  /* Color Variables */
+  --mainBG: #cbcbcb;
+  --darkerBG: #bdbdbd;
+  --lighterBG: #d9d9d9;
   --mainText: #000;
   --secondaryText: #444444;
+  --scrollbarThumbBG: #888;
+  --scrollbarThumbHoverBG: #555;
+
+  /* Dimension Variables */
+  --borderRadius: 16px;
+  --padding: 16px;
+
   display: block;
 }
 
@@ -19,44 +27,61 @@
 /* Track */
 ::-webkit-scrollbar-track {
   background: transparent;
-  border-radius: 16px;
+  border-radius: var(--borderRadius);
   overflow: hidden;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 16px;
+  background: var(--scrollbarThumbBG);
+  border-radius: var(--borderRadius);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--scrollbarThumbHoverBG);
 }
 
-button, input[type="submit"], input[type="reset"], a {
-	background: none;
+button,
+input[type='submit'],
+input[type='reset'],
+a {
+  background: none;
   text-decoration: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 .card-container {
   width: -webkit-fill-available;
   position: relative;
-  padding: 16px;
-  border-radius: 16px;
+  padding: var(--padding);
+  border-radius: var(--borderRadius);
   background-color: var(--mainBG);
   display: flex;
-  max-height: 10em;
+  /* max-height: 10em; */
   overflow: hidden;
   gap: 10px;
   /* flex: 1; */
   z-index: 10;
+}
+
+.main-card-body {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.default-children-button {
+  display: flex;
+}
+
+.children-btn-label {
+  text-decoration: underline;
 }
 
 .modal {
@@ -73,72 +98,35 @@ button, input[type="submit"], input[type="reset"], a {
   padding: 2em;
 }
 
-.card-container-detailed {
-  width: 100%;
-  height: 100%;
-  padding: 16px;
-  border-radius: 16px;
-  background-color: var(--mainBG);
+.default-action-btns-container {
   display: flex;
-  overflow: hidden;
-  gap: 10px;
-  /* z-index: 20; */
+  gap: 0.5em;
 }
 
-.metadata-container {
-  background-color: var(--lighterBG);
-  padding: 16px;
-  height: -webkit-fill-available;
-  flex: 2;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card-container-minimal {
-  position: relative;
-  padding: .1em;
-  /* max-width: 30em; */
-  border-radius: 16px;
-  background-color: var(--lighterBG);
+.default-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-height: 3em;
-  padding-left: 0.50em;
-  padding-right: 0.50em;
-  margin-bottom: .5em;
-}
-
-.minimal-child-wrapper {
-  padding-left: 2em;
+  align-items: flex-end;
+  flex: 1;
 }
 
 .children-container {
   position: relative;
   z-index: 1;
-  margin-top: -16px;
-  padding: 16px;
+  margin-top: calc(var(--padding) * -1);
+  padding: var(--padding);
   padding-top: 32px;
   background-color: var(--darkerBG);
   height: 10em;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
   overflow-y: scroll;
   padding-right: 25%;
 }
 
 .card-image {
-  /* flex: 1; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* max-width: 15em; */
-  max-width:100%;
-  /* max-height: 100%; */
-  /* min-width: 10em; */
-  border-radius: 16px;
-  /* aspect-ratio: 1; */
+  max-width: 100%;
+  border-radius: var(--borderRadius);
   object-fit: contain;
 }
 
@@ -172,17 +160,17 @@ button, input[type="submit"], input[type="reset"], a {
   text-overflow: ellipsis;
   margin-bottom: 0;
   overflow: hidden;
-   display: -webkit-box;
-   -webkit-line-clamp: 3; /* number of lines to show */
-           line-clamp: 3; 
-   -webkit-box-orient: vertical;
-  
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .main-card-wrapper {
   flex: 6;
   display: flex;
   flex-direction: column;
+  gap: 0.5em;
   overflow: hidden;
   /* justify-content: space-between; */
 }
@@ -235,7 +223,6 @@ button, input[type="submit"], input[type="reset"], a {
   flex: 1;
   gap: 0.25em;
   flex-direction: row;
-  margin-bottom: 0.25em;
 }
 
 .tag {
@@ -256,4 +243,107 @@ button, input[type="submit"], input[type="reset"], a {
   font-weight: 600;
   color: white;
   text-wrap: nowrap;
+}
+
+.detailed-card-container {
+  width: 100%;
+  height: 100%;
+  padding: var(--padding);
+  border-radius: var(--borderRadius);
+  background-color: var(--mainBG);
+  display: flex;
+  overflow: hidden;
+  gap: 10px;
+  /* z-index: 20; */
+}
+
+.detailed-metadata-container {
+  background-color: var(--lighterBG);
+  padding: var(--padding);
+  height: -webkit-fill-available;
+  flex: 2;
+  border-radius: var(--borderRadius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detailed-metadata-content-container {
+  flex: 1;
+}
+
+.detailed-metadata-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  margin-top: 0.75em;
+}
+
+.detailed-main-card {
+  padding: 0px;
+}
+
+.detailed-children-container {
+  flex: 1;
+  width: -webkit-fill-available;
+  margin-top: 1em;
+}
+
+.detailed-action-btns-container {
+  display: flex;
+  gap: 1em;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.detailed-main-wrapper {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+}
+
+.minimal-card-container {
+  position: relative;
+  padding: 0.1em;
+  /* max-width: 30em; */
+  border-radius: var(--borderRadius);
+  background-color: var(--lighterBG);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 3em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.minimal-child-wrapper {
+  padding-left: 2em;
+}
+
+.minimal-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.minimal-title {
+  font-size: 0.9em;
+  margin-left: 0.5em;
+}
+
+.minimal-children-btn {
+  margin-left: 0.5em;
+}
+
+.tag-icon {
+  color: #fff;
+  font-size: 12px;
+}
+
+.action-btn-icon {
+  color: var(--mainText);
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
