@@ -29,7 +29,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@stencil/core": "^4.7.0",
+    "@stencil/core": "^4.16.0",
     "iconify-icon": "^1.0.8"
   },
   "devDependencies": {
