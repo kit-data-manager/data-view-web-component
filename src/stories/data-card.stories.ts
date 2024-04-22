@@ -39,7 +39,7 @@ const meta = {
       { label: 'Related identifiers', value: 'None' },
       { label: 'Alternate identifiers', value: '211fae3e-4f7e-4c3e-8f3a-9f4c9c5c9c9c', url: 'http://localhost' },
     ],
-    variant: 'My Component',
+    variant: 'default',
     childrenData: [
       {
         dataTitle: 'Vatikan Vat Gr 247, 084r',
@@ -295,12 +295,10 @@ Detailed.args = {
 export const SFB980 = Template.bind({});
 SFB980.args = {
   ...exampleSFB980,
-  editUrl: 'test',
 };
 
 export const SFB980detailed = Template.bind({});
 SFB980detailed.args = {
   ...exampleSFB980,
   variant: 'detailed',
-  editUrl: 'test',
 };
