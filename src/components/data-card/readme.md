@@ -31,6 +31,18 @@
 | `actionClick` | Event emitted when an action button is clicked | `CustomEvent<{ eventIdentifier: string; dataObject: DataCard; }>` |
 
 
+## Shadow Parts
+
+| Part                                    | Description |
+| --------------------------------------- | ----------- |
+| `"card-container"`                      |             |
+| `"detailed-card-container"`             |             |
+| `"detailed-metadata-container"`         |             |
+| `"detailed-metadata-content-container"` |             |
+| `"image-wrapper"`                       |             |
+| `"minimal-card-container"`              |             |
+
+
 ## Dependencies
 
 ### Used by
