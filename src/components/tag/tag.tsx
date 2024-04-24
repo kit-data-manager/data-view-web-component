@@ -9,7 +9,7 @@ export const TagComponent = ({ tag }: Props) => {
   const clickable = tag.url && tag.url !== '';
   return (
     <a class="tag" part="tag" style={{ backgroundColor: tag.color, pointerEvents: clickable ? undefined : 'none' }} target="_blank" href={tag.url}>
-      {tag.iconName ? <iconify-icon icon={tag.iconName} class="tag-icon"></iconify-icon> : null}
+      {tag.iconName ? <iconify-icon icon={tag.iconName} class="tag-icon" part="tag-icon"></iconify-icon> : null}
       <span class="tag-text" part="tag-text" style={{ textDecoration: clickable ? 'underline' : 'none' }}>
         {tag.text}
       </span>

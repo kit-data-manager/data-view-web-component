@@ -7,6 +7,7 @@
   --secondaryText: #444444;
   --scrollbarThumbBG: #888;
   --scrollbarThumbHoverBG: #555;
+  --tagText: #fff;
 
   /* Dimension Variables */
   --borderRadius: 16px;
@@ -222,7 +223,6 @@ a {
 
 .tag-container {
   display: flex;
-  flex: 1;
   gap: 0.25em;
   flex-direction: row;
 }
@@ -243,7 +243,7 @@ a {
 .tag-text {
   font-size: 0.75em;
   font-weight: 600;
-  color: white;
+  color: var(--tagText);
   text-wrap: nowrap;
 }
 
@@ -338,7 +338,7 @@ a {
 }
 
 .tag-icon {
-  color: #fff;
+  color: var(--tagText);
   font-size: 12px;
 }
 
