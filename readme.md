@@ -28,17 +28,17 @@ npm start
 
 ### Script tag
 
-- Put a script tag `<script type='module' src='https://unpkg.com/data-view-web-component@0.0.6/dist/data-card.esm.js'></script>` in the head of your index.html
+- Put a script tag `<script type='module' src='https://unpkg.com/data-view-web-component@0.0.6/dist/data-view-web-component/data-view-web-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
 
 - Run `npm install data-view-web-component --save`
-- Put a script tag `<script type='module' src='node_modules/data-view-web-component/dist/data-card.esm.js'></script>` in the head of your index.html
+- Put a script tag `<script type='module' src='node_modules/data-view-web-component/data-view-web-component/data-view-web-component.esm.js'></script>` in the head of your index.html
 - OR load the element at the start of the App:
 
 ```
-import { applyPolyfills, defineCustomElements } from 'data-view-web-component/loader';
+import { applyPolyfills, defineCustomElements } from 'data-view-web-component/esm/loader';
 
 applyPolyfills().then(() => {
     defineCustomElements();
