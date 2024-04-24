@@ -38,7 +38,7 @@ npm start
 - OR load the element at the start of the App:
 
 ```
-import { applyPolyfills, defineCustomElements } from 'data-view-web-component/esm/loader';
+import { applyPolyfills, defineCustomElements } from 'data-view-web-component/loader';
 
 applyPolyfills().then(() => {
     defineCustomElements();

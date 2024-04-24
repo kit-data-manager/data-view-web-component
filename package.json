@@ -27,7 +27,7 @@
     "build-watch": "stencil build --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "publish": "stencil build --docs && npm publish"
+    "prepare": "stencil build --docs"
   },
   "dependencies": {
     "@stencil/core": "^4.16.0",
