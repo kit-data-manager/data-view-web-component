@@ -140,6 +140,7 @@ a {
   font-size: 1.3em;
   font-weight: 600;
   text-overflow: ellipsis;
+  color: var(--mainText);
   overflow: hidden;
   white-space: nowrap;
 }
@@ -158,6 +159,7 @@ a {
   font-size: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--mainText);
   margin-bottom: 0;
   overflow: hidden;
   display: -webkit-box;

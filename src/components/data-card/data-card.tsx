@@ -112,7 +112,7 @@ export class DataCard {
     if (this.variant === 'minimal') {
       return (
         <div>
-          <div class="minimal-card-container">
+          <div class="minimal-card-container" part="minimal-card-container">
             <div class="minimal-title-container">
               {typeof parsedActionButtons !== 'string' &&
                 parsedActionButtons
@@ -147,9 +147,9 @@ export class DataCard {
     if (this.variant === 'detailed') {
       return (
         <div class="modal">
-          <div class="detailed-card-container">
-            <div class="detailed-metadata-container">
-              <div class="detailed-metadata-content-container">
+          <div class="detailed-card-container" part='detailed-card-container'>
+            <div class="detailed-metadata-container" part='detailed-metadata-container'>
+              <div class="detailed-metadata-content-container" part="detailed-metadata-content-container">
                 <p class="title">Metadata</p>
                 <div class="detailed-metadata-content">
                   {typeof parsedMetadata !== 'string' &&
@@ -205,13 +205,14 @@ export class DataCard {
     return (
       <div>
         <div
+          part='card-container'
           class="card-container"
           style={{
             backgroundColor: this.nested ? 'var(--lighterBG)' : undefined,
           }}
         >
           {this.imageUrl && this.imageUrl !== '' ? (
-            <div class="image-wrapper">
+            <div class="image-wrapper" part='image-wrapper'>
               <img class="card-image" src={this.imageUrl} alt="card image" />
             </div>
           ) : null}

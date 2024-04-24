@@ -1,6 +1,6 @@
 {
   "name": "data-view-web-component",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Generic Web Component used to display various hierarchical data in a card format",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",

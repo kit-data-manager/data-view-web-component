@@ -17,10 +17,14 @@ export const TextProp = (props: Props) => {
   if (typeof prop === 'string') {
     // Check if the string resembles HTML, in that case render it as HTML
     if (prop.match(/<[^>]*>/)) {
-      return <div class={textClass} innerHTML={prop}></div>;
+      return <div class={textClass} part={textClass} innerHTML={prop}></div>;
     }
 
-    return <p class={textClass}>{prop}</p>;
+    return (
+      <p class={textClass} part={textClass}>
+        {prop}
+      </p>
+    );
   }
   return <LabelValue valueTextClass={textClass} value={prop.value} label={prop.label} {...props} />;
 };
