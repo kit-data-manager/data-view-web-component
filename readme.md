@@ -24,7 +24,24 @@ npm run storybook
 npm start
 ```
 
+### Publishing
+
+To publish the Web Component, simply run `npm publish` in the root directory. This will automatically run the `prepare` script which builds the component before publishing.
+
+The React Wrapper Library should also always be published at the same time, with the same package version (not for a technical reason, rather to facilitate understanding). The generated files (`react-library/lib/*`) get generated when the `build` script is executed in the root directory, since React is one of the output targets.
+
+- Enter the react-library directory `cd react-library`
+- Run `npm publish`. Just like in the root, the `prepare` script will be called and will compile the Typescript.
+
 ## Installation
+
+### React App
+
+To use this Web Component in a React App, it is recommended to use the [React Wrapper Library](https://www.npmjs.com/package/data-card-react). This allows for correct Event Propagation
+and passing Object & Arrays directly as Props, aswell as allowing Intellisense for the props.
+
+- Run `npm install data-card-react`
+- Use as any other React Component
 
 ### Script tag
 

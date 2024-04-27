@@ -1,6 +1,6 @@
 {
   "name": "data-view-web-component",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Generic Web Component used to display various hierarchical data in a card format",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@stencil-community/eslint-plugin": "^0.7.2",
+    "@stencil/react-output-target": "^0.5.3",
     "@storybook/addon-essentials": "^7.6.7",
     "@storybook/addon-links": "^7.6.7",
     "@storybook/addon-mdx-gfm": "^7.6.7",
@@ -43,6 +44,7 @@
     "@storybook/web-components-vite": "^7.6.7",
     "@types/jest": "^29.5.6",
     "@types/node": "^16.18.11",
+    "@types/react": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
     "eslint": "^8.57.0",
@@ -51,8 +53,8 @@
     "jest-cli": "^29.7.0",
     "lit": "^3.0.2",
     "puppeteer": "21.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "storybook": "^7.6.7",
     "typescript": "^5.4.5"
   },

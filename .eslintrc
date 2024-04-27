@@ -9,5 +9,6 @@
   "rules": {
     "@stencil-community/strict-boolean-conditions": "off",
     "react/jsx-no-bind": "off"
-  }
+  },
+  "ignorePatterns": ["*.config.ts", "react-library/*"]
 }
