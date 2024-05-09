@@ -106,8 +106,6 @@ export class DataCard {
     const parsedTags = parseProp(this.tags);
     const parsedMetadata = parseProp(this.metadata);
 
-    console.log('ActionButtons', parsedActionButtons);
-
     // Minimal variant
     if (this.variant === 'minimal') {
       return (
@@ -147,8 +145,8 @@ export class DataCard {
     if (this.variant === 'detailed') {
       return (
         <div class="modal">
-          <div class="detailed-card-container" part='detailed-card-container'>
-            <div class="detailed-metadata-container" part='detailed-metadata-container'>
+          <div class="detailed-card-container" part="detailed-card-container">
+            <div class="detailed-metadata-container" part="detailed-metadata-container">
               <div class="detailed-metadata-content-container" part="detailed-metadata-content-container">
                 <p class="title">Metadata</p>
                 <div class="detailed-metadata-content">
@@ -205,14 +203,14 @@ export class DataCard {
     return (
       <div>
         <div
-          part='card-container'
+          part="card-container"
           class="card-container"
           style={{
             backgroundColor: this.nested ? 'var(--lighterBG)' : undefined,
           }}
         >
           {this.imageUrl && this.imageUrl !== '' ? (
-            <div class="image-wrapper" part='image-wrapper'>
+            <div class="image-wrapper" part="image-wrapper">
               <img class="card-image" src={this.imageUrl} alt="card image" />
             </div>
           ) : null}

@@ -8,7 +8,8 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "@stencil-community/strict-boolean-conditions": "off",
-    "react/jsx-no-bind": "off"
+    "react/jsx-no-bind": "off",
+    "array-callback-return": "error"
   },
   "ignorePatterns": ["*.config.ts", "react-library/*"]
 }
