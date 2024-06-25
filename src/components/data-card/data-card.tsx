@@ -97,6 +97,7 @@ export class DataCard {
   };
 
   render() {
+    console.log(this.metadata);
     const parsedTitle = parseProp(this.dataTitle);
     const parsedSubtitle = parseProp(this.subTitle);
     const parsedBodyText = parseProp(this.bodyText);
@@ -105,6 +106,8 @@ export class DataCard {
     const parsedActionButtons = parseProp(this.actionButtons);
     const parsedTags = parseProp(this.tags);
     const parsedMetadata = parseProp(this.metadata);
+
+
 
     // Minimal variant
     if (this.variant === 'minimal') {
@@ -146,23 +149,26 @@ export class DataCard {
       return (
         <div class="modal">
           <div class="detailed-card-container" part="detailed-card-container">
-            <div class="detailed-metadata-container" part="detailed-metadata-container">
-              <div class="detailed-metadata-content-container" part="detailed-metadata-content-container">
-                <p class="title">Metadata</p>
-                <div class="detailed-metadata-content">
-                  {typeof parsedMetadata !== 'string' &&
-                    parsedMetadata?.map(metadata => (
-                      <LabelValue label={metadata.label} value={metadata.value} valueTextClass="bodyText" url={'url' in metadata ? metadata.url : undefined} />
-                    ))}
+            {parsedMetadata != undefined &&
+              <div class="detailed-metadata-container" part="detailed-metadata-container">
+                <div class="detailed-metadata-content-container" part="detailed-metadata-content-container">
+                  <p class="title">Metadata</p>
+                  <div class="detailed-metadata-content">
+                    {typeof parsedMetadata !== 'string' &&
+                      parsedMetadata?.map(metadata => (
+                        <LabelValue label={metadata.label} value={metadata.value} valueTextClass="bodyText"
+                                    url={'url' in metadata ? metadata.url : undefined} />
+                      ))}
+                  </div>
+                </div>
+                <div class="detailed-action-btns-container">
+                  {typeof parsedActionButtons !== 'string' &&
+                    parsedActionButtons
+                      ?.filter(action => action.position === 'metadata-container')
+                      .map(action => <ActionButton action={action} onActionPress={this.onActionPress} />)}
                 </div>
               </div>
-              <div class="detailed-action-btns-container">
-                {typeof parsedActionButtons !== 'string' &&
-                  parsedActionButtons
-                    ?.filter(action => action.position === 'metadata-container')
-                    .map(action => <ActionButton action={action} onActionPress={this.onActionPress} />)}
-              </div>
-            </div>
+            }
             <div class="detailed-main-wrapper">
               <div class="card-container detailed-main-card">
                 {this.imageUrl && this.imageUrl !== '' ? (
