@@ -191,7 +191,7 @@ export class DataCard {
                 </div>
               </div>
               <div class="detailed-children-container">
-                {typeof parsedChildren !== 'string' && parsedChildren?.map(child => <data-card variant="default" {...child} nested={true} />)}
+                {typeof parsedChildren !== 'string' && parsedChildren?.map(child => <data-card variant="default" {...child} nested={true} exportparts="card-container, detailed-card-container,image-wrapper"/>)}
               </div>
               <div class="detailed-action-btns-container">
                 {typeof parsedActionButtons !== 'string' &&

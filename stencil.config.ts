@@ -3,6 +3,7 @@ import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   namespace: 'data-view-web-component',
+  globalStyle: 'src/global/global.css',
   outputTargets: [
     {
       type: 'dist',

@@ -1,0 +1,11 @@
+:root{
+  /* Color Variables */
+  --mainBG: #cbcbcb;
+  --darkerBG: #bdbdbd;
+  --lighterBG: #cdcdcd;
+  --mainText: #000;
+  --secondaryText: #444444;
+  --scrollbarThumbBG: #888;
+  --scrollbarThumbHoverBG: #555;
+  --tagText: #fff;
+}

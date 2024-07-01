@@ -1,14 +1,4 @@
 :host {
-  /* Color Variables */
-  --mainBG: #cbcbcb;
-  --darkerBG: #bdbdbd;
-  --lighterBG: #d9d9d9;
-  --mainText: #000;
-  --secondaryText: #444444;
-  --scrollbarThumbBG: #888;
-  --scrollbarThumbHoverBG: #555;
-  --tagText: #fff;
-
   /* Dimension Variables */
   --borderRadius: 16px;
   --padding: 16px;
@@ -290,6 +280,12 @@ a {
   flex: 1;
   width: -webkit-fill-available;
   margin-top: 1em;
+  padding-bottom: 2em;
+}
+
+.detailed-children-container > * {
+  margin-top: 0.25em;
+  --lighterBG : var(--lighterBG);
 }
 
 .detailed-action-btns-container {
