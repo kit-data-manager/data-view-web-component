@@ -97,7 +97,6 @@ export class DataCard {
   };
 
   render() {
-    console.log(this.metadata);
     const parsedTitle = parseProp(this.dataTitle);
     const parsedSubtitle = parseProp(this.subTitle);
     const parsedBodyText = parseProp(this.bodyText);
@@ -157,7 +156,7 @@ export class DataCard {
                     {typeof parsedMetadata !== 'string' &&
                       parsedMetadata?.map(metadata => (
                         <LabelValue label={metadata.label} value={metadata.value} valueTextClass="bodyText"
-                                    url={'url' in metadata ? metadata.url : undefined} />
+                                    url={'url' in metadata ? metadata.url : undefined} target={'target' in metadata ? metadata.target : "_blank"} detailed={true}/>
                       ))}
                   </div>
                 </div>
@@ -177,7 +176,7 @@ export class DataCard {
                   </div>
                 ) : null}
                 <div class="main-card-wrapper">
-                  <div class="tag-container">{typeof parsedTags !== 'string' && parsedTags?.map(tag => <TagComponent tag={tag} />)}</div>
+                  <div class="tag-container">{typeof parsedTags !== 'string' && parsedTags?.map(tag => <TagComponent tag={tag} onActionPress={this.onActionPress}/>)}</div>
                   <div class="main-card-body" /* style={{ display: 'flex', flexDirection: 'row' }} */>
                     <div class="wrapper-middle">
                       <TextProp prop={parsedTitle} textClass="title" />
@@ -222,7 +221,7 @@ export class DataCard {
           ) : null}
           <div class="main-card-wrapper">
             {typeof parsedTags !== 'string' && parsedTags && parsedTags.length > 0 ? (
-              <div class="tag-container">{typeof parsedTags !== 'string' && parsedTags?.map(tag => <TagComponent tag={tag} />)}</div>
+              <div class="tag-container">{typeof parsedTags !== 'string' && parsedTags?.map(tag => <TagComponent tag={tag} onActionPress={this.onActionPress}/>)}</div>
             ) : null}
             <div class="main-card-body">
               <div class="wrapper-middle">
