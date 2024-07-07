@@ -253,7 +253,7 @@ export class DataCard {
           </div>
         </div>
         {this.hasChildrenOpened ? (
-          <div class="children-container">{typeof parsedChildren !== 'string' && parsedChildren?.map(child => <data-card {...child} variant={this.childrenVariant} />)}</div>
+          <div class="children-container">{typeof parsedChildren !== 'string' && parsedChildren?.map(child => <data-card {...child} part="child-data-card" variant={this.childrenVariant} />)}</div>
         ) : null}
       </div>
     );

@@ -109,11 +109,11 @@ a {
   padding: var(--padding);
   padding-top: 32px;
   background-color: var(--darkerBG);
-  height: 10em;
+  height: -webkit-fill-available;
   border-bottom-left-radius: var(--borderRadius);
   border-bottom-right-radius: var(--borderRadius);
   overflow-y: scroll;
-  padding-right: 25%;
+  padding-left: 10%;
 }
 
 .card-image {
@@ -253,7 +253,6 @@ a {
 .detailed-metadata-container {
   background-color: var(--lighterBG);
   padding: var(--padding);
-  height: -webkit-fill-available;
   flex: 2;
   border-radius: var(--borderRadius);
   display: flex;
@@ -279,6 +278,7 @@ a {
 .detailed-children-container {
   flex: 1;
   width: -webkit-fill-available;
+  height: -webkit-fill-available;
   margin-top: 1em;
   padding-bottom: 2em;
 }
