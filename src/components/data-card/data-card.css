@@ -117,13 +117,17 @@ a {
 }
 
 .card-image {
-  max-width: 100%;
+  max-width: 128px;
+  max-height: 128px;
   border-radius: var(--borderRadius);
   object-fit: contain;
 }
 
 .image-wrapper {
   width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 1;
 }
 
