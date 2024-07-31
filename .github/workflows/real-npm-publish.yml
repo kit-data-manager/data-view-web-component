@@ -13,8 +13,11 @@ jobs:
         with:
           node-version: 19
           registry-url: https://registry.npmjs.org/
-      - run: npm clean-install
-      - run: npm run build
-      - run: npm publish --access public
+      - run: |
+          npm clean-install
+          npm run build
+          npm publish --access public
+          cd react-library
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
