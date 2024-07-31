@@ -24,14 +24,19 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4.1.2
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4.1.2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: |
-          npm ci
-          npm publish
+      - name: Publish component
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Publish react-wrapper
+        run: |  
           cd react-library
           npm publish
         env:
