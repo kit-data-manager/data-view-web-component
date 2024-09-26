@@ -276,7 +276,7 @@ a {
 }
 
 .detailed-main-card {
-  padding: 0px;
+  padding: var(--padding);
 }
 
 .detailed-children-container {
