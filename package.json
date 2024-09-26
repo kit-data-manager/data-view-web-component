@@ -31,20 +31,20 @@
     "prepare": "stencil build --docs"
   },
   "dependencies": {
-    "@stencil/core": "^4.16.0",
+    "@stencil/core": "^4.21.0",
     "iconify-icon": "^1.0.8"
   },
   "devDependencies": {
     "@stencil-community/eslint-plugin": "^0.8.0",
     "@stencil/react-output-target": "^0.5.3",
-    "@storybook/addon-essentials": "^7.6.7",
-    "@storybook/addon-links": "^7.6.7",
-    "@storybook/addon-mdx-gfm": "^7.6.7",
-    "@storybook/blocks": "^7.6.7",
-    "@storybook/web-components": "^7.6.7",
+    "@storybook/addon-essentials": "^8.3.3",
+    "@storybook/addon-links": "^8.3.3",
+    "@storybook/addon-mdx-gfm": "^8.3.3",
+    "@storybook/blocks": "^8.3.3",
+    "@storybook/web-components": "^8.3.3",
     "@storybook/web-components-vite": "^8.1.11",
     "@types/jest": "^29.5.6",
-    "@types/node": "^16.18.11",
+    "@types/node": "^20.12.11",
     "@types/react": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
@@ -55,8 +55,8 @@
     "puppeteer": "23.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "storybook": "^7.6.7",
-    "typescript": "^5.4.5"
+    "storybook": "^8.3.3",
+    "typescript": "^5.5.4"
   },
   "license": "MIT"
 }
