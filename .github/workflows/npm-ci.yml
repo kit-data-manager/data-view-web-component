@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   build:
@@ -12,10 +12,13 @@ jobs:
     strategy:
       matrix:
         # Use both LTS releases and latest one for tests
-        node: [ 16, 18, 20 ]
+        node: [ 18, 20 ]
     steps:
       - uses: actions/checkout@v4.1.7
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      - run: npm ci
+      - name: Clean install and lint
+        run: |
+          npm ci
+          npm run lint

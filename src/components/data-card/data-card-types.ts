@@ -17,11 +17,13 @@ export type Tag =
   url?: string;
   target?:string;
   iconName?: string;
+  tooltip?: string;
 }|{
   text: string;
   color: string;
   eventIdentifier?: string;
   iconName?: string;
+  tooltip?: string;
 };
 
 export type DownloadObj = {
@@ -37,12 +39,14 @@ export type ActionButtonInterface =
   urlTarget?: string;
   iconName: string;
   position?: 'metadata-container';
+  tooltip?:string;
 }
   | {
   label: string;
   iconName: string;
   eventIdentifier: string;
   position?: 'metadata-container';
+  tooltip?:string;
 };
 
 export type ActionEvent = {

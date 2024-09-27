@@ -8,9 +8,10 @@ type Props = {
 };
 
 export const ActionButton = ({ action, onActionPress, noLabel }: Props) => {
+  const tooltip = 'tooltip' in action ? action.tooltip : '';
   if ('url' in action) {
     return (
-      <a target={action.urlTarget ?? '_blank'} href={action.url} class="action-btn-icon" part="action-btn-icon">
+      <a target={action.urlTarget ?? '_blank'} title={tooltip} href={action.url} class="action-btn-icon" part="action-btn-icon">
         <iconify-icon icon={action.iconName} height="1.5em" part="action-btn-iconify"></iconify-icon>
         {noLabel ? null : (
           <span class="subtitle" part="subtitle">
@@ -22,7 +23,7 @@ export const ActionButton = ({ action, onActionPress, noLabel }: Props) => {
   }
 
   return (
-    <button onClick={() => onActionPress(action.eventIdentifier)} class="action-btn-icon" part="action-btn-icon">
+    <button onClick={() => onActionPress(action.eventIdentifier)} title={tooltip}  class="action-btn-icon" part="action-btn-icon">
       <iconify-icon icon={action.iconName} height="1.5em" part="action-btn-iconify"></iconify-icon>
       {noLabel ? null : (
         <span class="subtitle" part="subtitle">

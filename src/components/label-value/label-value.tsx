@@ -13,7 +13,7 @@ type Props = {
 export const LabelValue = ({ label, value, alignRight, valueTextClass, url, target, detailed}: Props) => {
   return (
     <div class="label-value-wrapper" part="label-value-wrapper">
-      <span class={`label ${alignRight ? 'alignRight' : ''}`} part={`${detailed ? 'detailed_label':''} label ${alignRight ? 'alignRight' : ''}`}>
+      <span class={`label ${alignRight ? 'alignRight' : ''}`} part={`${detailed ? 'detailed-label':''} label ${alignRight ? 'alignRight' : ''}`}>
         {label}
       </span>
       {url ? (
@@ -25,12 +25,12 @@ export const LabelValue = ({ label, value, alignRight, valueTextClass, url, targ
           style={{ textDecoration: 'underline' }}
         >
         <span class={`${alignRight ? 'alignRight' : ''} ${valueTextClass ?? 'value'}`}
-              part={`${detailed ? 'detailed_value' : ''} ${alignRight ? 'alignRight' : ''} ${valueTextClass ?? 'value'}`}>
+              part={`${detailed ? 'detailed-value' : ''} ${alignRight ? 'alignRight' : ''} ${valueTextClass ?? 'value'}`}>
           {value}
         </span>
         </a>
       ) : (
-        <span class={`${alignRight ? 'alignRight' : ''} ${valueTextClass ?? 'value'}`} part={`${detailed ? 'detailed_value':''} ${alignRight ? 'alignRight' : ''} ${valueTextClass ?? 'value'}`}>
+        <span class={`${alignRight ? 'alignRight' : ''} ${valueTextClass ?? 'value'}`} part={`${detailed ? 'detailed-value':''} ${alignRight ? 'alignRight' : ''} ${valueTextClass ?? 'value'}`}>
           {value}
         </span>
       )}

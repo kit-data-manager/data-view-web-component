@@ -106,8 +106,6 @@ export class DataCard {
     const parsedTags = parseProp(this.tags);
     const parsedMetadata = parseProp(this.metadata);
 
-
-
     // Minimal variant
     if (this.variant === 'minimal') {
       return (
@@ -169,9 +167,9 @@ export class DataCard {
               </div>
             }
             <div class="detailed-main-wrapper">
-              <div class="card-container detailed-main-card">
+              <div class="card-container detailed-main-card" part="detailed-main-card">
                 {this.imageUrl && this.imageUrl !== '' ? (
-                  <div class="image-wrapper">
+                  <div class="image-wrapper" part="detailed-image-wrapper">
                     <img class="card-image" src={this.imageUrl} alt="card image" />
                   </div>
                 ) : null}

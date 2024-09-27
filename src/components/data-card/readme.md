@@ -37,6 +37,8 @@
 | --------------------------------------- | ----------- |
 | `"card-container"`                      |             |
 | `"detailed-card-container"`             |             |
+| `"detailed-image-wrapper"`              |             |
+| `"detailed-main-card"`                  |             |
 | `"detailed-metadata-container"`         |             |
 | `"detailed-metadata-content-container"` |             |
 | `"image-wrapper"`                       |             |
