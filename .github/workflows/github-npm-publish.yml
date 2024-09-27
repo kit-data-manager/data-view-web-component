@@ -35,10 +35,6 @@ jobs:
         run: |
           npm ci
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: Publish react-wrapper
-        run: |
           cd react-library
           npm publish
         env:
