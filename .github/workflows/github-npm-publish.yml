@@ -32,7 +32,9 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
       - name: Publish component
-        run: npm publish
+        run: |
+          npm ci
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Publish react-wrapper
