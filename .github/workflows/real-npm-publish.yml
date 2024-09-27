@@ -15,8 +15,11 @@ jobs:
         with:
           node-version: 19
           registry-url: https://registry.npmjs.org/
-      - name: Publish component
-        run: npm publish --access public
+      - name: Publish component     
+        run: |
+          npm clean-install
+          npm run build
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Publish react-wrapper
