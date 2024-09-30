@@ -1,6 +1,6 @@
 {
   "name": "@kit-data-manager/data-view-web-component-react",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "React Wrapper for Data View Web Component",
   "main": "dist/index.js",
   "module": "dist/index.js",
