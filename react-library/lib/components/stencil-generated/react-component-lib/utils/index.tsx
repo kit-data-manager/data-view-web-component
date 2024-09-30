@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithoutRef } from 'react';
 
 import type { StyleReactProps } from '../interfaces';
 
@@ -30,7 +30,7 @@ export const mergeRefs = (
 
 export const createForwardRef = <PropType, ElementType>(ReactComponent: any, displayName: string) => {
   const forwardRef = (
-    props: StencilReactExternalProps<PropType, ElementType>,
+    props: PropsWithoutRef<StencilReactExternalProps<PropType, ElementType>>,
     ref: StencilReactForwardedRef<ElementType>
   ) => {
     return <ReactComponent {...props} forwardedRef={ref} />;
