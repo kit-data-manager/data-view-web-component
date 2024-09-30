@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@stencil-community/eslint-plugin": "^0.8.0",
-    "@stencil/react-output-target": "^0.5.3",
+    "@stencil/react-output-target": "^0.7.1",
     "@storybook/addon-essentials": "^8.3.3",
     "@storybook/addon-links": "^8.3.3",
     "@storybook/addon-mdx-gfm": "^8.3.3",
