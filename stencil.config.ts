@@ -11,6 +11,7 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
+      externalRuntime: false
     },
     {
       type: 'docs-readme',
@@ -20,13 +21,15 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
     reactOutputTarget({
-      componentCorePackage: 'data-view-web-component',
+      outDir: './react-library/src'
+      componentCorePackage: '@kit-data-manager/data-view-web-component',
       proxiesFile: './react-library/lib/components/stencil-generated/index.ts',
       includeDefineCustomElements: true,
-      loaderDir: 'loader',
+      loaderDir: 'loader'
     }),
   ],
   testing: {
     browserHeadless: 'new',
   },
 };
+
