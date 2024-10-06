@@ -35,7 +35,7 @@
     "iconify-icon": "^2.1.0"
   },
   "devDependencies": {
-    "@stencil-community/eslint-plugin": "^0.7.2",
+    "@stencil-community/eslint-plugin": "^0.8.0",
     "@stencil/react-output-target": "^0.7.1",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-links": "^8.3.5",
