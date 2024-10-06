@@ -38,7 +38,7 @@
     "@stencil-community/eslint-plugin": "^0.7.2",
     "@stencil/react-output-target": "^0.7.1",
     "@storybook/addon-essentials": "^8.3.5",
-    "@storybook/addon-links": "^7.6.7",
+    "@storybook/addon-links": "^8.3.5",
     "@storybook/addon-mdx-gfm": "^7.6.7",
     "@storybook/blocks": "^7.6.7",
     "@storybook/web-components": "^7.6.7",
