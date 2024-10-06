@@ -14,7 +14,7 @@ jobs:
         # Use both LTS releases and latest one for tests
         node: [ 18, 20 ]
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.0
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
