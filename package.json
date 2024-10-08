@@ -1,6 +1,6 @@
 {
   "name": "@kit-data-manager/data-view-web-component",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Generic Web Component used to display various hierarchical data in a card format",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -31,11 +31,11 @@
     "prepare": "stencil build --docs"
   },
   "dependencies": {
-    "@stencil/core": "4.21.0",
+    "@stencil/core": "4.22.0",
     "iconify-icon": "^2.1.0"
   },
   "devDependencies": {
-    "@stencil-community/eslint-plugin": "^0.7.2",
+    "@stencil-community/eslint-plugin": "^0.8.0",
     "@stencil/react-output-target": "^0.7.1",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-links": "^8.3.5",
@@ -44,11 +44,8 @@
     "@storybook/web-components": "^8.3.5",
     "@storybook/web-components-vite": "^8.3.5",
     "@types/jest": "^29.5.6",
-    "@types/node": "^22.7.4",
-    "@types/react": "^18.3.1",
-    "@typescript-eslint/eslint-plugin": "^6",
-    "@typescript-eslint/parser": "^6",
-    "eslint": "^8.57.0",
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
     "eslint-config-prettier": "^9.1.0",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
