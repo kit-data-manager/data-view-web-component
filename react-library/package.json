@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@kit-data-manager/data-view-web-component": "",
-    "@stencil/react-output-target": "^0.7.1",
+    "@stencil/react-output-target": "^0.8.0",
     "@types/node": "^22.7.4",
     "data-view-web-component": "file://../"
   },
