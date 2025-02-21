@@ -75,7 +75,6 @@ a {
   text-decoration: underline;
 }
 
-
 .modal {
   /*position: fixed;
   top: 0;
@@ -117,8 +116,8 @@ a {
 }
 
 .card-image {
-  max-width: 128px;
-  max-height: 128px;
+  width: 128px;
+  height: 128px;
   border-radius: var(--borderRadius);
   object-fit: contain;
 }
@@ -128,7 +127,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
 }
 
 .title {

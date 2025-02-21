@@ -10,14 +10,28 @@ export const TagComponent = ({ tag, onActionPress }: Props) => {
   const tooltip = 'tooltip' in tag ? tag.tooltip:'';
   if (!('eventIdentifier' in tag)) {
     const url = ('url' in tag) ? tag.url : '';
-    const target = 'target' in tag ? tag.target : "_blank";
     const clickable = url !== '' ;
+    const target = 'target' in tag ? tag.target : (clickable ? "_blank" : '');
     const pointable = tooltip != '';
+
+    if(!clickable){
+      return (
+        <a class="tag" title={tooltip} part="tag"
+           style={{ backgroundColor: tag.color, pointerEvents: pointable ? undefined : 'none', cursor: 'default'}}
+        >
+          {tag.iconName ? <iconify-icon icon={tag.iconName} class="tag-icon" part="tag-icon"></iconify-icon> : null}
+          <span class="tag-text" part="tag-text" style={{ textDecoration: 'none' }}>
+        {tag.text}
+      </span>
+        </a>
+      );
+    }
 
     return (
       <a class="tag" title={tooltip} part="tag"
          style={{ backgroundColor: tag.color, pointerEvents: clickable || pointable ? undefined : 'none'}}
-         target={target} href={url}>
+         href={url} target={target}
+        >
         {tag.iconName ? <iconify-icon icon={tag.iconName} class="tag-icon" part="tag-icon"></iconify-icon> : null}
         <span class="tag-text" part="tag-text" style={{ textDecoration: clickable ? 'underline' : 'none' }}>
         {tag.text}
