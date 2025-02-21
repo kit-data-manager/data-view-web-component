@@ -18,7 +18,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@kit-data-manager/data-view-web-component": "0.0.23",
+    "@kit-data-manager/data-view-web-component": "0.0.22",
     "@stencil/react-output-target": "^0.8.0",
     "@types/node": "^22.7.4"
   },
