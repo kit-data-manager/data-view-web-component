@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@stencil/core": "4.33.0",
-    "iconify-icon": "^2.1.0"
+    "iconify-icon": "^3.0.0"
   },
   "devDependencies": {
     "@stencil-community/eslint-plugin": "^0.10.0",
