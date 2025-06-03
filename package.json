@@ -32,17 +32,15 @@
   },
   "dependencies": {
     "@stencil/core": "4.33.0",
-    "iconify-icon": "^2.1.0"
+    "iconify-icon": "^3.0.0"
   },
   "devDependencies": {
-    "@stencil-community/eslint-plugin": "^0.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
     "@stencil/react-output-target": "^1.0.0",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-links": "^8.6.14",
-    "@storybook/addon-mdx-gfm": "^8.6.14",
-    "@storybook/blocks": "^8.6.14",
-    "@storybook/web-components": "^8.6.14",
-    "@storybook/web-components-vite": "^8.6.14",
+    "@storybook/addon-links": "^9.0.4",
+    "@storybook/addon-docs": "^9.0.4",
+    "@storybook/web-components": "^9.0.4",
+    "@storybook/web-components-vite": "^9.0.4",
     "@types/jest": "^29.5.6",
     "@types/node": "^22.15.19",
     "@types/react": "^18.3.11",
@@ -53,8 +51,8 @@
     "puppeteer": "^24.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "storybook": "^8.3.5",
-    "typescript": "^5.6.3"
+    "storybook": "^9.0.4",
+    "typescript": "^5.8.3"
   },
   "license": "MIT"
 }

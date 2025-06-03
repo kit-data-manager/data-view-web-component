@@ -14,73 +14,43 @@ export namespace Components {
          */
         "actionButtons"?: Array<ActionButtonInterface> | string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "action-buttons"?: Array<ActionButtonInterface> | string;
-        /**
           * Body text of the card
          */
         "bodyText"?: TextPropType;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "body-text"?: TextPropType;
         /**
           * Array of children cards to be displayed on the card
          */
         "childrenData"?: Array<DataCard> | string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "children-data"?: Array<DataCard> | string;
-        /**
           * Clickable label to display when the card has children
          */
         "childrenLabel"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "children-label"?: string;
-        /**
           * Variant of the card's children
+          * @default 'minimal'
          */
         "childrenVariant"?: 'default' | 'minimal';
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "children-variant"?: 'default' | 'minimal';
         /**
           * Title of the card
          */
         "dataTitle": TextPropType;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "data-title"?: TextPropType;
-        /**
           * URL of the image to be displayed on the card
          */
         "imageUrl"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "image-url"?: string;
         /**
           * Array of metadata to be displayed on the card in the detailed view
          */
         "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl> | string;
         /**
           * Whether the card is being used inside of the detailed view
+          * @default false
          */
         "nested": boolean;
         /**
           * Subtitle of the card
          */
         "subTitle"?: TextPropType;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "sub-title"?: TextPropType;
         /**
           * Array of tags to be displayed on the card
          */
@@ -90,11 +60,8 @@ export namespace Components {
          */
         "textRight"?: TextPropType;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "text-right"?: TextPropType;
-        /**
           * Variant of the card
+          * @default 'default'
          */
         "variant"?: 'default' | 'detailed' | 'minimal';
     }
@@ -132,63 +99,37 @@ declare namespace LocalJSX {
          */
         "actionButtons"?: Array<ActionButtonInterface> | string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "action-buttons"?: Array<ActionButtonInterface> | string;
-        /**
           * Body text of the card
          */
         "bodyText"?: TextPropType;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "body-text"?: TextPropType;
         /**
           * Array of children cards to be displayed on the card
          */
         "childrenData"?: Array<DataCard> | string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "children-data"?: Array<DataCard> | string;
-        /**
           * Clickable label to display when the card has children
          */
         "childrenLabel"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "children-label"?: string;
-        /**
           * Variant of the card's children
+          * @default 'minimal'
          */
         "childrenVariant"?: 'default' | 'minimal';
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "children-variant"?: 'default' | 'minimal';
         /**
           * Title of the card
          */
         "dataTitle"?: TextPropType;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "data-title"?: TextPropType;
-        /**
           * URL of the image to be displayed on the card
          */
         "imageUrl"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "image-url"?: string;
         /**
           * Array of metadata to be displayed on the card in the detailed view
          */
         "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl> | string;
         /**
           * Whether the card is being used inside of the detailed view
+          * @default false
          */
         "nested"?: boolean;
         /**
@@ -200,10 +141,6 @@ declare namespace LocalJSX {
          */
         "subTitle"?: TextPropType;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "sub-title"?: TextPropType;
-        /**
           * Array of tags to be displayed on the card
          */
         "tags"?: Array<Tag> | string;
@@ -212,11 +149,8 @@ declare namespace LocalJSX {
          */
         "textRight"?: TextPropType;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "text-right"?: TextPropType;
-        /**
           * Variant of the card
+          * @default 'default'
          */
         "variant"?: 'default' | 'detailed' | 'minimal';
     }
