@@ -20,5 +20,6 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Clean install and lint
         run: |
+          rm package-lock.json
           npm ci
           npm run lint
