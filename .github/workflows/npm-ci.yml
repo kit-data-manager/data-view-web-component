@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         # Use both LTS releases and latest one for tests
-        node: [ 18, 20 ]
+        node: [ 22 ]
     steps:
       - uses: actions/checkout@v4.2.2
       - uses: actions/setup-node@v4
@@ -20,5 +20,6 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Clean install and lint
         run: |
-          npm ci
+          rm package-lock.json
+          npm i
           npm run lint
