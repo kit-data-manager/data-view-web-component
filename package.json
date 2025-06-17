@@ -31,7 +31,7 @@
     "prepare": "stencil build --docs"
   },
   "dependencies": {
-    "@stencil/core": "4.33.0",
+    "@stencil/core": "4.35.1",
     "iconify-icon": "^3.0.0"
   },
   "devDependencies": {
