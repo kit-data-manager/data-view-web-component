@@ -20,7 +20,7 @@
   "dependencies": {
     "@kit-data-manager/data-view-web-component": "0.0.23",
     "@stencil/react-output-target": "^1.0.0",
-    "@types/node": "^22.7.4"
+    "@types/node": "^24.0.0"
   },
   "author": "",
   "license": "ISC",
