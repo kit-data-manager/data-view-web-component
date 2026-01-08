@@ -1,0 +1,12 @@
+{
+  "name": "@kit-data-manager/data-view-web-component/hydrate",
+  "description": "DataViewWebComponent component hydration app.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    }
+  }
+}

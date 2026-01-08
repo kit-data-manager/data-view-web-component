@@ -1,4 +1,7 @@
-name: NPM Clean Install
+name: NPM CI
+
+permissions:
+  contents: read
 
 on:
   push:
@@ -12,14 +15,11 @@ jobs:
     strategy:
       matrix:
         # Use both LTS releases and latest one for tests
-        node: [ 22 ]
+        node: [ 18, 20, 22, 24 ]
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      - name: Clean install and lint
-        run: |
-          rm package-lock.json
-          npm i
-          npm run lint
+      - run: npm ci
+      - run: npx lerna run build

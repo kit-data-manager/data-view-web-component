@@ -83,4 +83,4 @@ https://icon-sets.iconify.design/
 
 ### Props
 
-[Props & Types](src/components/data-card/readme.md)
+[Props & Types](packages/stencil-library/src/components/data-card/readme.md)

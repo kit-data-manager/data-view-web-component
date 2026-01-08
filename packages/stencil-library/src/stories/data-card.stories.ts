@@ -1,4 +1,4 @@
-import exampleSFB980 from '../../examples/sfb-980.json';
+import exampleSFB980 from '../../../../examples/sfb-980.json';
 import { Decorator, Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 

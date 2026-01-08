@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "https://w3id.org/software-iodata",
+    "https://raw.githubusercontent.com/jantman/repostatus.org/master/badges/latest/ontology.jsonld",
+    "https://schema.org",
+    "https://w3id.org/software-types"
+  ],
+  "@type": "SoftwareSourceCode",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Thomas",
+      "familyName": "Jejkal",
+      "email": "thomas.jejkal@kit.edu",
+      "@id": "https://orcid.org/0000-0003-2804-688X",
+      "identifier": "https://orcid.org/0000-0003-2804-688X",
+      "affiliation": "Karlsruhe Institute of Technology (KIT)"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Arno",
+      "familyName": "Wiest"
+    }
+  ],
+  "name": "data-view-web-component",
+  "description": "Monorepo for the Data-View-Web-Component and related packages",
+  "version": "0.1.0",
+  "keywords": [
+    "stencil",
+    "webcomponent",
+    "webcomponents"
+  ],
+  "license": [
+    "https://spdx.org/licenses/Apache-2.0"
+  ],
+  "softwareHelp": "https://kit-data-manager.github.io/data-view-web-component",
+  "codeRepository": "https://github.com/kit-data-manager/data-view-web-component",
+  "buildInstructions": "https://kit-data-manager.github.io/data-view-web-component",
+  "url": "https://kit-data-manager.github.io/data-view-web-component"
+}

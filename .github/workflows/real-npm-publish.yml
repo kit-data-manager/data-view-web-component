@@ -1,28 +1,92 @@
-# Derived from: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-name: Node.js Package to npmjs.com
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+
 on:
   release:
     types: [ published ]
+  workflow_dispatch:  # Added manual trigger option
+
+permissions:
+  contents: write
+  packages: write
 
 jobs:
-  publish-npm:
+  build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.3.1
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
-      - name: Publish component     
+          node-version: 20
+          cache: 'npm'  # Added caching
+      - run: npm ci
+      - run: npx lerna run build
+      #      - run: npx lerna run test
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: packages/
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          registry-url: https://npm.pkg.github.com/
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: packages/
+      - run: npm ci
+      - name: Temporarily sync README
         run: |
-          npm clean-install
-          npm run build
-          npm publish --access public
-          cd react-library
-          npm install
-          npm run build
-          npm publish --access public
+          cp README.md packages/stencil-library
+          git config --global user.email "webmaster@datamanager.kit.edu"
+          git config --global user.name "GitHub Action"
+          git commit -am "Synced README"
+      - name: Configure GitHub Packages scope
+        run: echo "@$(echo '${{ github.repository }}' | cut -d '/' -f 1):registry=https://npm.pkg.github.com" >> .npmrc
+      - run: npx lerna publish from-package --yes
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          registry-url: https://registry.npmjs.org/
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: packages/
+      - run: npm ci
+      - name: Temporarily sync README
+        run: |
+          cp README.md packages/stencil-library
+          git config --global user.email "webmaster@datamanager.kit.edu"
+          git config --global user.name "GitHub Action"
+          git commit -am "Synced README"
+      - run: npx lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

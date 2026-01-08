@@ -7,7 +7,6 @@ import {
   ValueLabelObjWithUrl,
   ActionButtonInterface,
 } from './data-card-types';
-// import { LabelValue } from '../label-value/label-value';
 import { TextProp } from '../text-prop/text-prop';
 import { TagComponent } from '../tag/tag';
 import 'iconify-icon';

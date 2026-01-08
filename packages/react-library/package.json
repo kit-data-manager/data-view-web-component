@@ -1,0 +1,57 @@
+{
+  "name": "@kit-data-manager/data-view-web-component-react",
+  "version": "0.1.0",
+  "description": "A generic Stencil Web Component that can be used to render single elements in lists showing customizable details, actions, and tags, e.g., for rendering search results.",
+  "author": {
+    "name": "Thomas Jejkal",
+    "url": "https://orcid.org/0000-0003-2804-688X",
+    "email": "thomas.jejkal@kit.edu"
+  },
+  "homepage": "https://kit-data-manager.github.io/data-view-web-component",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kit-data-manager/data-view-web-component"
+  },
+  "scripts": {
+    "build": "npm run tsc",
+    "tsc": "tsc -p . --outDir ./dist"
+  },
+  "bugs": {
+    "url": "https://github.com/kit-data-manager/data-view-web-component/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@stencil/react-output-target": "^1.0.4",
+    "@kit-data-manager/data-view-web-component": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "keywords": [
+    "stencil",
+    "webcomponent",
+    "webcomponents"
+  ],
+  "contributors": [
+    {
+      "name": "Thomas Jejkal",
+      "url": "https://orcid.org/0000-0003-2804-688X",
+      "email": "thomas.jejkal@kit.edu"
+    },
+    {
+      "name": "Arno Wiest"
+    }
+  ]
+}
