@@ -9,22 +9,30 @@ type Props = {
 
 export const ActionButton = ({ action, onActionPress, noLabel }: Props) => {
   const tooltip = 'tooltip' in action ? action.tooltip : '';
-  if ('url' in action) {
-    return (
-      <a target={action.urlTarget ?? '_blank'} title={tooltip} href={action.url} class="action-btn-icon" part="action-btn-icon">
-        <iconify-icon icon={action.iconName} height="1.5em" part="action-btn-iconify"></iconify-icon>
-        {noLabel ? null : (
-          <span class="subtitle" part="subtitle">
-            {action.label}
-          </span>
-        )}
-      </a>
-    );
-  }
+
+  const handleClick = () => {
+    if ('url' in action) {
+      window.open(action.url, '_blank', 'noopener,noreferrer');
+    } else {
+      onActionPress(action.eventIdentifier);
+    }
+  };
 
   return (
-    <button onClick={() => onActionPress(action.eventIdentifier)} title={tooltip}  class="action-btn-icon" part="action-btn-icon">
-      <iconify-icon icon={action.iconName} height="1.5em" part="action-btn-iconify"></iconify-icon>
+    <button
+      type="button"
+      onClick={handleClick}
+      title={tooltip}
+      class="action-btn-icon"
+      part="action-btn-icon"
+      aria-label={noLabel ? action.label : undefined}
+    >
+      <iconify-icon
+        icon={action.iconName}
+        height="1.5em"
+        part="action-btn-iconify"
+      ></iconify-icon>
+
       {noLabel ? null : (
         <span class="subtitle" part="subtitle">
           {action.label}

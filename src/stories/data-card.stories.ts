@@ -1,15 +1,13 @@
 import exampleSFB980 from '../../examples/sfb-980.json';
 import { Meta, StoryObj } from '@storybook/web-components';
+import { html } from 'lit';
 
 const meta = {
   title: 'Data Card',
+  component: 'data-card',
   args: {
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg',
     dataTitle: 'A sample resource',
-    // dataTitleType: 'string',
-    // dataTitleString: "A sample resource",
-    // dataTitleObject: { label: 'Title', value: 'A sample resource' },
-    // subTitle: "KIT, 2020",
     subTitle: 'KIT, 2020',
     bodyText:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.',
@@ -238,10 +236,7 @@ const meta = {
   },
   argTypes: {
     imageUrl: { control: 'text' },
-    dataTitle: { control: 'text', defaultValue: 'A sample resource' },
-    // dataTitleType: { control: "radio", options: ['string', 'object'], name: 'Type of dataTitle Prop' },
-    // dataTitleString: { control: "text", defaultValue: "A sample resource", if: { arg: 'dataTitleType', eq: 'string' }, name: 'dataTitle' },
-    // dataTitleObject: { control: "object", name: 'dataTitle', defaultValue: { label: 'Title', value: 'A sample resource' }, if: { arg: 'dataTitleType', eq: 'object' } },
+    dataTitle: { control: 'text', default: 'A sample resource' },
     subTitle: { control: 'text' },
     bodyText: { control: 'text' },
     textRight: { control: 'object' },
@@ -259,10 +254,7 @@ export default meta;
 const Template = (args: Story['args']) =>
   `<data-card
     image-url="${args.imageUrl}"
-    data-title='${
-      // args.dataTitleType === 'string' ? args.dataTitleString : JSON.stringify(args.dataTitleObject)
-      args.dataTitle
-    }'
+    data-title="${args.dataTitle}"
     sub-title="${args.subTitle}"
     body-text="${args.bodyText}"
     text-right='${JSON.stringify(args.textRight)}'
@@ -277,6 +269,18 @@ const Template = (args: Story['args']) =>
   ></data-card>`;
 
 type Story = StoryObj<typeof meta>['args'];
+
+const withCustomStyles = (css: string) => (storyFn: any) => {
+  const wrapper = document.createElement('div');
+
+  const style = document.createElement('style');
+  style.textContent = css;
+
+  wrapper.appendChild(style);
+  wrapper.appendChild(storyFn());
+
+  return wrapper;
+};
 
 export const Default: Story = Template.bind({});
 
@@ -302,3 +306,98 @@ SFB980detailed.args = {
   ...exampleSFB980,
   variant: 'detailed',
 };
+
+const textDecorator = story =>
+  html`<p class="items-center align-middle">
+    This story shows some options how to style the component. It applies some style overwrites, i.e.,
+    <pre>
+      data-card::part(action-btn-icon){
+        background-color: hsl(226 55% 50%);
+        border-color: hsl(60 4% 5% / 0.25);
+        border-style: solid;
+        border-width: 0.1em;
+        border-radius: 4px;
+        padding: 15px 32px;
+        box-shadow: 2px 2px 3px 0 rgb(0 0 0 / 0.1);
+      }
+      data-card::part(card-container){
+        background-color: hsl(240 4% 86%);
+        border-radius: 4px;
+        padding: 4px;
+      }
+      data-card::part(minimal-card-container){
+        padding: 4px;
+      }
+      data-card::part(children-container){
+        background-color: hsl(250 4% 76%);
+       }
+       data-card::part(tag-text){
+       font-size: .75em;
+       font-weight:200;
+       }
+    </pre>
+
+    The result looks as follows:
+    <br/><br/>
+
+    ${story()}
+
+    <br/><br/>
+  There are plenty of parts available that can be styled according to your needs. Available part names are the following:
+    <ul>
+      <li>detailed-card-container</li>
+      <li>children-container</li>
+      <li>minimal-card-container</li>
+      <li>detailed-metadata-container</li>
+      <li>detailed-metadata-content-container</li>
+      <li>detailed-main-card</li>
+      <li>detailed-image-wrapper</li>
+      <li>image-wrapper</li>
+      <li>card-container</li>
+      <li>child-data-card</li>
+      <li>action-btn-icon</li>
+      <li>action-btn-iconify</li>
+      <li>subtitle</li>
+      <li>label-value-wrapper</li>
+      <li>tag</li>
+      <li>tag-icon</li>
+      <li>tag-text</li>
+    </ul>
+  </p>`;
+
+export const Themed: StoryObj<typeof meta> = {
+  args: {
+    title: 'Themed Card',
+  },
+  decorators: [
+    withCustomStyles(`
+      data-card::part(action-btn-icon){
+        background-color: hsl(226 55% 50%);
+        border-color: hsl(60 4% 5% / 0.25);
+        border-style: solid;
+        border-width: 0.1em;
+        border-radius: 4px;
+        padding: 15px 32px;
+        box-shadow: 2px 2px 3px 0 rgb(0 0 0 / 0.1);
+      }
+      data-card::part(card-container){
+        background-color: hsl(240 4% 86%);
+        border-radius: 4px;
+        padding: 4px;
+      }
+      data-card::part(minimal-card-container){
+        padding: 4px;
+      }
+      data-card::part(children-container){
+        background-color: hsl(250 4% 76%);
+       }
+       data-card::part(tag-text){
+       font-size: .75em;
+       font-weight:200;
+       }
+    `),
+    textDecorator
+  ]
+};
+
+

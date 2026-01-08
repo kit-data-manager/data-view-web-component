@@ -1,5 +1,12 @@
 import { Component, Event, EventEmitter, Prop, State, h } from '@stencil/core';
-import { ActionEvent, Tag, TextPropType, ValueLabelObj, ValueLabelObjWithUrl, ActionButtonInterface } from './data-card-types';
+import {
+  ActionEvent,
+  Tag,
+  TextPropType,
+  ValueLabelObj,
+  ValueLabelObjWithUrl,
+  ActionButtonInterface,
+} from './data-card-types';
 // import { LabelValue } from '../label-value/label-value';
 import { TextProp } from '../text-prop/text-prop';
 import { TagComponent } from '../tag/tag';
@@ -122,7 +129,8 @@ export class DataCard {
               <p class="label">{typeof parsedTextRight === 'string' ? parsedTextRight : parsedTextRight.value}</p>
               {typeof parsedChildren !== 'string' && parsedChildren && parsedChildren.length > 0 ? (
                 <button onClick={this.onChildrenClick} class="minimal-children-btn">
-                  <iconify-icon icon={`ci:chevron-${this.hasChildrenOpened ? 'up' : 'down'}`} height="1.5em"></iconify-icon>
+                  <iconify-icon icon={`ci:chevron-${this.hasChildrenOpened ? 'up' : 'down'}`}
+                                height="1.5em"></iconify-icon>
                 </button>
               ) : null}
             </div>
@@ -132,7 +140,8 @@ export class DataCard {
               {typeof parsedChildren !== 'string' &&
                 parsedChildren?.map(child => (
                   <div class="minimal-child-wrapper">
-                    <data-card variant="minimal" {...child} />
+                    <data-card variant="minimal"
+                               exportparts="detailed-card-container, children-container, minimal-card-container, detailed-metadata-container, detailed-metadata-content-container, detailed-main-card, detailed-image-wrapper, image-wrapper, card-container, child-data-card, action-btn-icon, action-btn-iconify, subtitle, label-value-wrapper, tag, tag-icon, tag-text" {...child} />
                   </div>
                 ))}
             </div>
@@ -154,7 +163,8 @@ export class DataCard {
                     {typeof parsedMetadata !== 'string' &&
                       parsedMetadata?.map(metadata => (
                         <LabelValue label={metadata.label} value={metadata.value} valueTextClass="bodyText"
-                                    url={'url' in metadata ? metadata.url : undefined} target={'target' in metadata ? metadata.target : "_blank"} detailed={true}/>
+                                    url={'url' in metadata ? metadata.url : undefined}
+                                    target={'target' in metadata ? metadata.target : '_blank'} detailed={true} />
                       ))}
                   </div>
                 </div>
@@ -174,7 +184,8 @@ export class DataCard {
                   </div>
                 ) : null}
                 <div class="main-card-wrapper">
-                  <div class="tag-container">{typeof parsedTags !== 'string' && parsedTags?.map(tag => <TagComponent tag={tag} onActionPress={this.onActionPress}/>)}</div>
+                  <div class="tag-container">{typeof parsedTags !== 'string' && parsedTags?.map(tag => <TagComponent
+                    tag={tag} onActionPress={this.onActionPress} />)}</div>
                   <div class="main-card-body" /* style={{ display: 'flex', flexDirection: 'row' }} */>
                     <div class="wrapper-middle">
                       <TextProp prop={parsedTitle} textClass="title" />
@@ -188,7 +199,9 @@ export class DataCard {
                 </div>
               </div>
               <div class="detailed-children-container">
-                {typeof parsedChildren !== 'string' && parsedChildren?.map(child => <data-card variant="default" {...child} nested={true} exportparts="card-container, detailed-card-container,image-wrapper"/>)}
+                {typeof parsedChildren !== 'string' && parsedChildren?.map(child => <data-card
+                  variant="default" {...child} nested={true}
+                  exportparts="detailed-card-container, children-container, minimal-card-container, detailed-metadata-container, detailed-metadata-content-container, detailed-main-card, detailed-image-wrapper, image-wrapper, card-container, child-data-card, action-btn-icon, action-btn-iconify, subtitle, label-value-wrapper, tag, tag-icon, tag-text" />)}
               </div>
               <div class="detailed-action-btns-container">
                 {typeof parsedActionButtons !== 'string' &&
@@ -219,7 +232,8 @@ export class DataCard {
           ) : null}
           <div class="main-card-wrapper">
             {typeof parsedTags !== 'string' && parsedTags && parsedTags.length > 0 ? (
-              <div class="tag-container">{typeof parsedTags !== 'string' && parsedTags?.map(tag => <TagComponent tag={tag} onActionPress={this.onActionPress}/>)}</div>
+              <div class="tag-container">{typeof parsedTags !== 'string' && parsedTags?.map(tag => <TagComponent
+                tag={tag} onActionPress={this.onActionPress} />)}</div>
             ) : null}
             <div class="main-card-body">
               <div class="wrapper-middle">
@@ -251,7 +265,10 @@ export class DataCard {
           </div>
         </div>
         {this.hasChildrenOpened ? (
-          <div class="children-container">{typeof parsedChildren !== 'string' && parsedChildren?.map(child => <data-card {...child} part="child-data-card" variant={this.childrenVariant} />)}</div>
+          <div class="children-container" part="children-container">{typeof parsedChildren !== 'string' && parsedChildren?.map(child =>
+            <data-card {...child} part="child-data-card"
+                       exportparts="detailed-card-container, children-container, minimal-card-container, detailed-metadata-container, detailed-metadata-content-container, detailed-main-card, detailed-image-wrapper, image-wrapper, card-container, child-data-card, action-btn-icon, action-btn-iconify, subtitle, label-value-wrapper, tag, tag-icon, tag-text"
+                       variant={this.childrenVariant} />)}</div>
         ) : null}
       </div>
     );

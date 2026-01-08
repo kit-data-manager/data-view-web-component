@@ -4,7 +4,8 @@ const config = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    "@storybook/addon-mdx-gfm"
+    "@storybook/addon-mdx-gfm",
+    '@storybook/addon-docs'
   ],
   framework: {
     name: '@storybook/web-components-vite',
