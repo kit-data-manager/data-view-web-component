@@ -1,7 +1,7 @@
 {
   "name": "data-view-web-component",
   "private": true,
-  "version": "0.0.26",
+  "version": "0.1.0",
   "workspaces": [
     "packages/*"
   ],
@@ -23,13 +23,6 @@
     "url": "https://orcid.org/0000-0003-2804-688X",
     "email": "thomas.jejkal@kit.edu"
   },
-  "maintainers": [
-    {
-      "name": "Thomas Jejkal",
-      "url": "https://orcid.org/0000-0003-2804-688X",
-      "email": "thomas.jejkal@kit.edu"
-    }
-  ],
   "license": "Apache-2.0",
   "contributors": [
     {

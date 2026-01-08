@@ -23,8 +23,8 @@
       "familyName": "Wiest"
     }
   ],
-  "name": "@kit-data-manager/data-view-web-component-react",
-  "description": "A generic Stencil Web Component that can be used to render single elements in lists showing customizable details, actions, and tags, e.g., for rendering search results.",
+  "name": "data-view-web-component",
+  "description": "Monorepo for the Data-View-Web-Component and related packages",
   "version": "0.1.0",
   "keywords": [
     "stencil",
