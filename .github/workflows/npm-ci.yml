@@ -14,12 +14,12 @@ jobs:
         # Use both LTS releases and latest one for tests
         node: [ 22 ]
     steps:
-      - uses: actions/checkout@v4.3.1
+      - uses: actions/checkout@v4.2.2
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
       - name: Clean install and lint
         run: |
           rm package-lock.json
-          npm i
+          npm ci
           npm run lint
