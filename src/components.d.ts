@@ -27,6 +27,7 @@ export namespace Components {
         "childrenLabel"?: string;
         /**
           * Variant of the card's children
+          * @default 'minimal'
          */
         "childrenVariant"?: 'default' | 'minimal';
         /**
@@ -43,6 +44,7 @@ export namespace Components {
         "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl> | string;
         /**
           * Whether the card is being used inside of the detailed view
+          * @default false
          */
         "nested": boolean;
         /**
@@ -59,6 +61,7 @@ export namespace Components {
         "textRight"?: TextPropType;
         /**
           * Variant of the card
+          * @default 'default'
          */
         "variant"?: 'default' | 'detailed' | 'minimal';
     }
@@ -109,6 +112,7 @@ declare namespace LocalJSX {
         "childrenLabel"?: string;
         /**
           * Variant of the card's children
+          * @default 'minimal'
          */
         "childrenVariant"?: 'default' | 'minimal';
         /**
@@ -125,6 +129,7 @@ declare namespace LocalJSX {
         "metadata"?: Array<ValueLabelObj | ValueLabelObjWithUrl> | string;
         /**
           * Whether the card is being used inside of the detailed view
+          * @default false
          */
         "nested"?: boolean;
         /**
@@ -145,6 +150,7 @@ declare namespace LocalJSX {
         "textRight"?: TextPropType;
         /**
           * Variant of the card
+          * @default 'default'
          */
         "variant"?: 'default' | 'detailed' | 'minimal';
     }

@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.3.2
-
       - name: Build
         run: npm ci
 
@@ -24,7 +23,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.3.2
-
       - name: Deploy Storybook to GitHub Pages
         uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
         with:

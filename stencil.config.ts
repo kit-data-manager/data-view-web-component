@@ -21,7 +21,7 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
     reactOutputTarget({
-      outDir: './react-library/src'
+      outDir: './react-library/src',
       componentCorePackage: '@kit-data-manager/data-view-web-component',
       proxiesFile: './react-library/lib/components/stencil-generated/index.ts',
       includeDefineCustomElements: true,

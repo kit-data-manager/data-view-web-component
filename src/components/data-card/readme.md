@@ -36,6 +36,7 @@
 | Part                                    | Description |
 | --------------------------------------- | ----------- |
 | `"card-container"`                      |             |
+| `"children-container"`                  |             |
 | `"detailed-card-container"`             |             |
 | `"detailed-image-wrapper"`              |             |
 | `"detailed-main-card"`                  |             |
