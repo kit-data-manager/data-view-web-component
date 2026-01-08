@@ -7,26 +7,29 @@ on:
 jobs:
   build-component:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-      - name: Build
-        run: npm ci
-
-  deploy-storybook:
-    runs-on: ubuntu-latest
     permissions:
       contents: read
       pages: write
       id-token: write
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-      - name: Deploy Storybook to GitHub Pages
-        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          path: storybook-static
-          build_command: |
-            npm run build
-            npm run build-storybook
+          node-version: 20
+      - name: npm ci
+        run: npm ci
+      - name: Build component
+        run: npm run build
+        working-directory: packages/stencil-library
+      - name: Build Storybook
+        run: npm run build-storybook
+        working-directory: packages/stencil-library
+      - name: Upload Storybook to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "packages/stencil-library/storybook-static"
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ github.token }}

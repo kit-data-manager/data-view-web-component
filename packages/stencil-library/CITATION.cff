@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+type: software
+title: '@kit-data-manager/data-view-web-component'
+abstract: A generic Stencil Web Component that can be used to render single 
+  elements in lists showing customizable details, actions, and tags, e.g., for 
+  rendering search results.
+version: 0.0.26
+keywords:
+  - stencil
+  - webcomponent
+  - webcomponents
+authors:
+  - affiliation: Karlsruhe Institute of Technology (KIT)
+    orcid: https://orcid.org/0000-0003-2804-688X
+    email: thomas.jejkal@kit.edu
+    family-names: Jejkal
+    given-names: Thomas
+  - family-names: Wiest
+    given-names: Arno
+license: Apache-2.0
+url: https://kit-data-manager.github.io/data-view-web-component
+repository-code: https://github.com/kit-data-manager/data-view-web-component

@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+type: software
+title: pid-component
+abstract: Monorepo for the PID Component and related packages
+version: 0.2.2
+authors:
+  - orcid: https://orcid.org/0009-0005-2800-4833
+    given-names: Maximilian
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    family-names: Inckmann
+    email: maximilian.inckmann@kit.edu
+  - orcid: https://orcid.org/0009-0003-2196-9187
+    given-names: Christopher
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    family-names: Raquet
+    email: christopher.raquet@kit.edu
+  - orcid: https://orcid.org/0000-0001-6575-1022
+    given-names: Andreas
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    family-names: Pfeil
+    email: andreas.pfeil@kit.edu
+  - orcid: https://orcid.org/0000-0003-2804-688X
+    given-names: Thomas
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    family-names: Jejkal
+    email: thomas.jejkal@kit.edu
+contact:
+  - orcid: https://orcid.org/0009-0005-2800-4833
+    given-names: Maximilian
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    family-names: Inckmann
+    email: maximilian.inckmann@kit.edu
+  - orcid: https://orcid.org/0009-0003-2196-9187
+    given-names: Christopher
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    family-names: Raquet
+    email: christopher.raquet@kit.edu
+license: Apache-2.0
+keywords:
+  - react
+  - pid
+  - datatyperegistry
+  - handle.net
+  - orcid
+  - identifier
+  - kit-data-manager
+  - typescript
+  - storybook
+  - tailwindcss
+  - fair
+  - fairdata
+  - fairdo
+  - fairdigitalobject
+url: https://kit-data-manager.github.io/pid-component
+repository-code: https://github.com/kit-data-manager/pid-component

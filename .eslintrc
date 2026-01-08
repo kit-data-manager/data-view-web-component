@@ -11,5 +11,5 @@
     "react/jsx-no-bind": "off",
     "array-callback-return": "error"
   },
-  "ignorePatterns": ["*.config.ts", "react-library/*"]
+  "ignorePatterns": ["*.config.ts", "packages/react-library/*"]
 }
