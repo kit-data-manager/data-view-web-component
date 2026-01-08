@@ -1,5 +1,5 @@
 import exampleSFB980 from '../../examples/sfb-980.json';
-import { Meta, StoryObj } from '@storybook/web-components';
+import { Decorator, Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
 const meta = {
@@ -270,17 +270,15 @@ const Template = (args: Story['args']) =>
 
 type Story = StoryObj<typeof meta>['args'];
 
-const withCustomStyles = (css: string) => (storyFn: any) => {
-  const wrapper = document.createElement('div');
-
-  const style = document.createElement('style');
-  style.textContent = css;
-
-  wrapper.appendChild(style);
-  wrapper.appendChild(storyFn());
-
-  return wrapper;
-};
+const withCustomStyles =
+  (css: string): Decorator =>
+    story =>
+      html`
+      <style>
+        ${css}
+      </style>
+      ${story()}
+    `;
 
 export const Default: Story = Template.bind({});
 
