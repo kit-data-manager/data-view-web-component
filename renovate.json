@@ -64,9 +64,5 @@
 
   "ignoreDeps": [
     "@types/node"
-  ],
-
-  "node": {
-    "supportPolicy": ["lts"]
-  }
+  ]
 }
