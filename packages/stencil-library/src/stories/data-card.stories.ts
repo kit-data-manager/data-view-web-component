@@ -1,5 +1,5 @@
 import exampleSFB980 from '../../../../examples/sfb-980.json';
-import { Decorator, Meta, StoryObj } from '@storybook/web-components';
+import { Decorator, Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
 
 const meta = {
