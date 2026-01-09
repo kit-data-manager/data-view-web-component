@@ -2,7 +2,7 @@ import { defineCustomElements } from '../loader';
 
 defineCustomElements();
 
-/** @type { import('@storybook/web-components').Preview } */
+/** @type { import('@storybook/web-components-vite').Preview } */
 const preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
