@@ -25,7 +25,7 @@
   ],
   "name": "@kit-data-manager/data-view-web-component",
   "description": "A generic Stencil Web Component that can be used to render single elements in lists showing customizable details, actions, and tags, e.g., for rendering search results.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [
     "stencil",
     "webcomponent",

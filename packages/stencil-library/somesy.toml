@@ -1,6 +1,6 @@
 [project]
 name = "@kit-data-manager/data-view-web-component"
-version = "0.1.0"
+version = "0.1.1"
 description = "A generic Stencil Web Component that can be used to render single elements in lists showing customizable details, actions, and tags, e.g., for rendering search results."
 license = "Apache-2.0"
 repository = "https://github.com/kit-data-manager/data-view-web-component"
