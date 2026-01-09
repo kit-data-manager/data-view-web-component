@@ -1,6 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-
   "extends": [
     "config:recommended",
     ":dependencyDashboard",
@@ -8,61 +7,49 @@
     ":preserveSemverRanges",
     "group:allNonMajor"
   ],
-
   "labels": ["dependencies"],
-  "baseBranches": ["dev"],
+  "baseBranchPatterns": ["dev"],
   "rangeStrategy": "replace",
-
   "timezone": "UTC",
-
   "schedule": ["before 6am on monday"],
-
   "packageRules": [
     {
       "description": "Stencil core updates (manual review)",
       "matchPackageNames": ["@stencil/core"],
       "automerge": false
     },
-
     {
       "description": "Group all Stencil-related packages",
-      "matchPackagePatterns": ["^@stencil/"],
-      "groupName": "stencil"
+      "groupName": "stencil",
+      "matchPackageNames": ["/^@stencil//"]
     },
-
     {
       "description": "Lock Jest ecosystem to compatible versions",
-      "matchPackagePatterns": [
-        "^jest$",
-        "^@types/jest$",
-        "^@jest/",
-        "ts-jest"
-      ],
       "groupName": "jest",
-      "allowedVersions": "<29"
+      "allowedVersions": "<29",
+      "matchPackageNames": [
+        "/^jest$/",
+        "/^@types/jest$/",
+        "/^@jest//",
+        "/ts-jest/"
+      ]
     },
-
     {
       "description": "TypeScript updates (no automerge)",
       "matchPackageNames": ["typescript"],
       "automerge": false
     },
-
     {
       "description": "Automerge minor & patch devDependencies",
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },
-
     {
       "description": "Never automerge production dependencies",
       "matchDepTypes": ["dependencies"],
       "automerge": false
     }
   ],
-
-  "ignoreDeps": [
-    "@types/node"
-  ]
+  "ignoreDeps": ["@types/node"]
 }
