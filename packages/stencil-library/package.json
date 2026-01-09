@@ -58,10 +58,10 @@
   "devDependencies": {
     "@stencil-community/eslint-plugin": "^0.10.0",
     "@stencil/react-output-target": "^1.0.0",
-    "@storybook/addon-docs": "^9.0.4",
-    "@storybook/addon-links": "^9.0.4",
-    "@storybook/web-components": "^9.0.4",
-    "@storybook/web-components-vite": "^9.0.4",
+    "@storybook/addon-docs": "^10.0.0",
+    "@storybook/addon-links": "^10.0.0",
+    "@storybook/web-components": "^10.0.0",
+    "@storybook/web-components-vite": "^10.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
@@ -73,7 +73,7 @@
     "puppeteer": "^24.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "storybook": "^9.0.4",
+    "storybook": "^10.0.0",
     "typescript": "^5.8.3"
   },
   "license": "Apache-2.0",
