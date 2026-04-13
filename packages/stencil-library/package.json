@@ -75,7 +75,7 @@
     "react-dom": "^19.0.0",
     "storybook": "^10.1.11",
     "typescript": "^5.8.3",
-    "eslint-plugin-storybook": "10.3.4"
+    "eslint-plugin-storybook": "10.3.5"
   },
   "license": "Apache-2.0",
   "keywords": [
