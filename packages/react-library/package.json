@@ -37,7 +37,7 @@
     "@kit-data-manager/data-view-web-component": "*"
   },
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "typescript": "^6.0.0"
   },
   "keywords": [
     "stencil",
