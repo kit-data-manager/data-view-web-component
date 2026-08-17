@@ -7,7 +7,7 @@
   ],
   "devDependencies": {
     "@types/node": "^24.2.1",
-    "lerna": "^9.0.0",
+    "lerna": "^10.0.0",
     "typescript": "^5.9.2",
     "workbox-build": "^7.0.0"
   },
