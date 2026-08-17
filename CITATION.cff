@@ -3,7 +3,7 @@ message: If you use this software, please cite it using these metadata.
 type: software
 title: data-view-web-component
 abstract: Monorepo for the Data-View-Web-Component and related packages
-version: 0.1.1
+version: 0.1.2
 authors:
   - orcid: https://orcid.org/0000-0003-2804-688X
     given-names: Thomas
