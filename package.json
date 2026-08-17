@@ -1,18 +1,18 @@
 {
   "name": "data-view-web-component",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "@types/node": "^24.2.1",
-    "lerna": "^9.0.0",
+    "lerna": "^10.0.0",
     "typescript": "^5.9.2",
     "workbox-build": "^7.0.0"
   },
   "dependencies": {
-    "vite": "7.3.1"
+    "vite": "7.3.5"
   },
   "scripts": {
     "build": "lerna run build"

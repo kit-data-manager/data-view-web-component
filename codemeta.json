@@ -25,7 +25,7 @@
   ],
   "name": "data-view-web-component",
   "description": "Monorepo for the Data-View-Web-Component and related packages",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "stencil",
     "webcomponent",

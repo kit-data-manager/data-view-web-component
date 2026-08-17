@@ -12,8 +12,8 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
       - name: npm ci
@@ -25,11 +25,11 @@ jobs:
         run: npm run build-storybook
         working-directory: packages/stencil-library
       - name: Upload Storybook to GitHub Pages
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "packages/stencil-library/storybook-static"
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
         with:
           token: ${{ github.token }}

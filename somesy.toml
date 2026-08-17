@@ -1,6 +1,6 @@
 [project]
 name = "data-view-web-component"
-version = "0.1.1"
+version = "0.1.2"
 description = "Monorepo for the Data-View-Web-Component and related packages"
 license = "Apache-2.0"
 repository = "https://github.com/kit-data-manager/data-view-web-component"
