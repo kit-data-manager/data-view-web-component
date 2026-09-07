@@ -74,7 +74,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "storybook": "^10.1.11",
-    "typescript": "^5.8.3",
+    "typescript": "^7.0.0",
     "eslint-plugin-storybook": "10.6.0"
   },
   "license": "Apache-2.0",
